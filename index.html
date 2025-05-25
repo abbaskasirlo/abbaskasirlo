@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfume Vessal - نمایشگاه لوکس عطر</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <style>
+        @font-face {
+            font-family: 'Vazirmatn';
+            src: url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/fonts/webfonts/Vazirmatn-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: #f8f5f2;
+        }
+        
+        .perfume-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .perfume-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .price-tag {
+            background: linear-gradient(135deg, #d4af37 0%, #f9f295 50%, #d4af37 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header-gradient {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+        
+        .guarantee-badge {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+        
+        .perfume-image {
+            background: linear-gradient(135deg, #d4af37 0%, #f9f295 50%, #d4af37 100%);
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Header -->
+    <header class="header-gradient text-white py-6 shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <h1 class="text-4xl font-bold tracking-wider mb-4 md:mb-0">PERFUME VESSAL</h1>
+                <div class="guarantee-badge px-4 py-2 rounded-lg font-bold text-white shadow-md">
+                    <i class="fas fa-shield-alt mr-2"></i>ضمانت مرجوعی ۷ روزه
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="mb-8 text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">کالکشن عطر‌های لوکس</h2>
+            <p class="text-gray-600">مجموعه‌ای از بهترین و خوشبوترین عطر‌ها با کیفیت تضمین شده</p>
+        </div>
+        
+        <div id="perfumes-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <!-- Perfumes will be inserted here dynamically -->
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="header-gradient text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-2">PERFUME VESSAL</h3>
+                    <p>مرکز فروش عطر‌های اورجینال و با کیفیت</p>
+                </div>
+                <div class="flex flex-col items-center md:items-end">
+                    <p class="mb-2">ما را در شبکه‌های اجتماعی دنبال کنید</p>
+                    <a href="https://www.instagram.com/Perfume_vessal" target="_blank" class="flex items-center text-lg hover:text-pink-300 transition-colors">
+                        <i class="fab fa-instagram ml-2"></i>
+                        @Perfume_vessal
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-6 pt-6 text-center">
+                <p>&copy; ۱۴۰۲ - تمامی حقوق برای Perfume Vessal محفوظ است.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Perfume data from the Excel file
+        const perfumeData = [
+            {"name": "استیل جنیفر", "sizes": [{"size": "30g", "price": 500000}, {"size": "50g", "price": 760000}, {"size": "100g", "price": 1260000}]},
+            {"name": "سیلور مانتاین", "sizes": [{"size": "30g", "price": 670000}, {"size": "50g", "price": 1010000}, {"size": "100g", "price": 1680000}]},
+            {"name": "کوکوشنل", "sizes": [{"size": "30g", "price": 670000}, {"size": "50g", "price": 1010000}, {"size": "100g", "price": 1680000}]},
+            {"name": "لانکوم لاویه بل", "sizes": [{"size": "30g", "price": 580000}, {"size": "50g", "price": 860000}, {"size": "100g", "price": 1440000}]},
+            {"name": "لالیک مور", "sizes": [{"size": "30g", "price": 670000}, {"size": "50g", "price": 1010000}, {"size": "100g", "price": 1680000}]},
+            {"name": "مای وی", "sizes": [{"size": "30g", "price": 670000}, {"size": "50g", "price": 1010000}, {"size": "100g", "price": 1680000}]},
+            {"name": "مگاماره", "sizes": [{"size": "30g", "price": 840000}, {"size": "50g", "price": 1260000}, {"size": "100g", "price": 2100000}]},
+            {"name": "فارنهایت", "sizes": [{"size": "30g", "price": 670000}, {"size": "50g", "price": 1010000}, {"size": "100g", "price": 1680000}]},
+            {"name": "فرعون", "sizes": [{"size": "30g", "price": 840000}, {"size": "50g", "price": 1260000}, {"size": "100g", "price": 2100000}]},
+            {"name": "فلور نارکوتیک", "sizes": [{"size": "30g", "price": 580000}, {"size": "50g", "price": 860000}, {"size": "100g", "price": 1440000}]},
+            {"name": "دیور هوم اینتنس", "sizes": [{"size": "30g", "price": 840000}, {"size": "50g", "price": 1260000}, {"size": "100g", "price": 2100000}]},
+            {"name": "ساواج", "sizes": [{"size": "30g", "price": 670000}, {"size": "50g", "price": 1010000}, {"size": "100g", "price": 1680000}]},
+            {"name": "212 سکسی زنانه", "sizes": [{"size": "30g", "price": 580000}, {"size": "50g", "price": 860000}, {"size": "100g", "price": 1440000}]},
+            {"name": "ورسوز", "sizes": [{"size": "30g", "price": 430000}, {"size": "50g", "price": 650000}, {"size": "100g", "price": 1080000}]},
+            {"name": "وری سکسی", "sizes": [{"size": "30g", "price": 620000}, {"size": "50g", "price": 940000}, {"size": "100g", "price": 1560000}]},
+            {"name": "ورساچه اروس", "sizes": [{"size": "30g", "price": 670000}, {"size": "50g", "price": 1010000}, {"size": "100g", "price": 1680000}]},
+            {"name": "ورساچه دیلان", "sizes": [{"size": "30g", "price": 670000}, {"size": "50g", "price": 1010000}, {"size": "100g", "price": 1680000}]},
+            {"name": "گرلن اسنژال", "sizes": [{"size": "30g", "price": 580000}, {"size": "50g", "price": 860000}, {"size": "100g", "price": 1440000}]},
+            {"name": "گود گرل", "sizes": [{"size": "30g", "price": 580000}, {"size": "50g", "price": 860000}, {"size": "100g", "price": 1440000}]},
+            {"name": "د اُن میلیون", "sizes": [{"size": "30g", "price": 670000}, {"size": "50g", "price": 1010000}, {"size": "100g", "price": 1680000}]},
+            {"name": "کلوین کلین سی کی", "sizes": [{"size": "30g", "price": 430000}, {"size": "50g", "price": 650000}, {"size": "100g", "price": 1080000}]},
+            {"name": "ناسوماتو بلک افغان", "sizes": [{"size": "30g", "price": 1680000}, {"size": "50g", "price": 2520000}, {"size": "100g", "price": 3900000}]},
+            {"name": "دی اند جی لایت بلو زنانه", "sizes": [{"size": "30g", "price": 670000}, {"size": "50g", "price": 1010000}, {"size": "100g", "price": 1680000}]},
+            {"name": "دی اند جی لایت بلو مردانه", "sizes": [{"size": "30g", "price": 670000}, {"size": "50g", "price": 1010000}, {"size": "100g", "price": 1680000}]},
+            {"name": "رابرتو کاوالی", "sizes": [{"size": "30g", "price": 670000}, {"size": "50g", "price": 1010000}, {"size": "100g", "price": 1680000}]},
+            {"name": "لیدی میلیون", "sizes": [{"size": "30g", "price": 670000}, {"size": "50g", "price": 1010000}, {"size": "100g", "price": 1680000}]},
+            {"name": "لیدی میلیون لاک", "sizes": [{"size": "30g", "price": 670000}, {"size": "50g", "price": 1010000}, {"size": "100g", "price": 1680000}]},
+            {"name": "لیدی میلیون پرایو", "sizes": [{"size": "30g", "price": 840000}, {"size": "50g", "price": 1260000}, {"size": "100g", "price": 2100000}]},
+            {"name": "مون بلان اکسپلورر", "sizes": [{"size": "30g", "price": 670000}, {"size": "50g", "price": 1010000}, {"size": "100g", "price": 1680000}]},
+            {"name": "مون بلان امبلم", "sizes": [{"size": "30g", "price": 670000}, {"size": "50g", "price": 1010000}, {"size": "100g", "price": 1680000}]},
+            {"name": "شنل بلو", "sizes": [{"size": "30g", "price": 840000}, {"size": "50g", "price": 1260000}, {"size": "100g", "price": 2100000}]},
+            {"name": "شنل چنس", "sizes": [{"size": "30g", "price": 840000}, {"size": "50g", "price": 1260000}, {"size": "100g", "price": 2100000}]},
+            {"name": "شنل کوکو", "sizes": [{"size": "30g", "price": 840000}, {"size": "50g", "price": 1260000}, {"size": "100g", "price": 2100000}]},
+            {"name": "شنل ادوتویلت", "sizes": [{"size": "30g", "price": 840000}, {"size": "50g", "price": 1260000}, {"size": "100g", "price": 2100000}]},
+            {"name": "شنل ادوپرفیوم", "sizes": [{"size": "30g", "price": 1050000}, {"size": "50g", "price": 1580000}, {"size": "100g", "price": 2620000}]},
+            {"name": "کارولینا هررا", "sizes": [{"size": "30g", "price": 670000}, {"size": "50g", "price": 1010000}, {"size": "100g", "price": 1680000}]},
+            {"name": "جویسی کوتور", "sizes": [{"size": "30g", "price": 670000}, {"size": "50g", "price": 1010000}, {"size": "100g", "price": 1680000}]},
+            {"name": "دولچه گابانا", "sizes": [{"size": "30g", "price": 670000}, {"size": "50g", "price": 1010000}, {"size": "100g", "price": 1680000}]},
+            {"name": "بلو شنل مردانه", "sizes": [{"size": "30g", "price": 840000}, {"size": "50g", "price": 1260000}, {"size": "100g", "price": 2100000}]},
+            {"name": "بولگاری گلدیا", "sizes": [{"size": "30g", "price": 670000}, {"size": "50g", "price": 1010000}, {"size": "100g", "price": 1680000}]},
+            {"name": "دولچه گابانا وان", "sizes": [{"size": "30g", "price": 580000}, {"size": "50g", "price": 860000}, {"size": "100g", "price": 1440000}]},
+            {"name": "مایکل کورس سکسی روبی", "sizes": [{"size": "30g", "price": 580000}, {"size": "50g", "price": 860000}, {"size": "100g", "price": 1440000}]},
+            {"name": "بلغاری مردانه", "sizes": [{"size": "30g", "price": 670000}, {"size": "50g", "price": 1010000}, {"size": "100g", "price": 1680000}]},
+            {"name": "بلغاری زنانه", "sizes": [{"size": "30g", "price": 670000}, {"size": "50g", "price": 1010000}, {"size": "100g", "price": 1680000}]},
+            {"name": "بلغاری گلدیا", "sizes": [{"size": "30g", "price": 670000}, {"size": "50g", "price": 1010000}, {"size": "100g", "price": 1680000}]},
+            {"name": "لاویکتور", "sizes": [{"size": "30g", "price": 670000}, {"size": "50g", "price": 1010000}, {"size": "100g", "price": 1680000}]},
+            {"name": "لالیک", "sizes": [{"size": "30g", "price": 580000}, {"size": "50g", "price": 860000}, {"size": "100g", "price": 1440000}]},
+            {"name": "اسکادا", "sizes": [{"size": "30g", "price": 580000}, {"size": "50g", "price": 860000}, {"size": "100g", "price": 1440000}]},
+            {"name": "داویداف", "sizes": [{"size": "30g", "price": 580000}, {"size": "50g", "price": 860000}, {"size": "100g", "price": 1440000}]},
+            {"name": "کلوین کلین زنانه", "sizes": [{"size": "30g", "price": 430000}, {"size": "50g", "price": 650000}, {"size": "100g", "price": 1080000}]},
+            {"name": "کلوین کلین مردانه", "sizes": [{"size": "30g", "price": 430000}, {"size": "50g", "price": 650000}, {"size": "100g", "price": 1080000}]},
+            {"name": "تام فورد نویر", "sizes": [{"size": "30g", "price": 840000}, {"size": "50g", "price": 1260000}, {"size": "100g", "price": 2100000}]},
+            {"name": "تام فورد توباکو", "sizes": [{"size": "30g", "price": 840000}, {"size": "50g", "price": 1260000}, {"size": "100g", "price": 2100000}]},
+            {"name": "تام فورد لوست چری", "sizes": [{"size": "30g", "price": 1050000}, {"size": "50g", "price": 1580000}, {"size": "100g", "price": 2620000}]},
+            {"name": "سویج", "sizes": [{"size": "30g", "price": 670000}, {"size": "50g", "price": 1010000}, {"size": "100g", "price": 1680000}]},
+            {"name": "ورساچه کریستال", "sizes": [{"size": "30g", "price": 670000}, {"size": "50g", "price": 1010000}, {"size": "100g", "price": 1680000}]},
+            {"name": "ورساچه شلف", "sizes": [{"size": "30g", "price": 670000}, {"size": "50g", "price": 1010000}, {"size": "100g", "price": 1680000}]},
+            {"name": "زرجف کاسامرتف", "sizes": [{"size": "30g", "price": 1050000}, {"size": "50g", "price": 1580000}, {"size": "100g", "price": 2620000}]},
+            {"name": "کاسامرتف فلیسیا", "sizes": [{"size": "30g", "price": 1050000}, {"size": "50g", "price": 1580000}, {"size": "100g", "price": 2620000}]},
+            {"name": "کارتیر", "sizes": [{"size": "30g", "price": 840000}, {"size": "50g", "price": 1260000}, {"size": "100g", "price": 2100000}]},
+            {"name": "کارتیر رونوی", "sizes": [{"size": "30g", "price": 840000}, {"size": "50g", "price": 1260000}, {"size": "100g", "price": 2100000}]},
+            {"name": "کارتیر گل موگه", "sizes": [{"size": "30g", "price": 840000}, {"size": "50g", "price": 1260000}, {"size": "100g", "price": 2100000}]},
+            {"name": "قرمزC", "sizes": [{"size": "30g", "price": 580000}, {"size": "50g", "price": 860000}, {"size": "100g", "price": 1440000}]},
+            {"name": "وان میلیون", "sizes": [{"size": "30g", "price": 670000}, {"size": "50g", "price": 1010000}, {"size": "100g", "price": 1680000}]},
+            {"name": "وان میلیون پرایو", "sizes": [{"size": "30g", "price": 840000}, {"size": "50g", "price": 1260000}, {"size": "100g", "price": 2100000}]},
+            {"name": "اترنیتی زنانه", "sizes": [{"size": "30g", "price": 580000}, {"size": "50g", "price": 860000}, {"size": "100g", "price": 1440000}]},
+            {"name": "اترنیتی مردانه", "sizes": [{"size": "30g", "price": 580000}, {"size": "50g", "price": 860000}, {"size": "100g", "price": 1440000}]},
+            {"name": "جیمی چو", "sizes": [{"size": "30g", "price": 580000}, {"size": "50g", "price": 860000}, {"size": "100g", "price": 1440000}]},
+            {"name": "تام فورد بلک ارکید", "sizes": [{"size": "30g", "price": 840000}, {"size": "50g", "price": 1260000}, {"size": "100g", "price": 2100000}]},
+            {"name": "دیور زنانه", "sizes": [{"size": "30g", "price": 670000}, {"size": "50g", "price": 1010000}, {"size": "100g", "price": 1680000}]},
+            {"name": "دیور مردانه", "sizes": [{"size": "30g", "price": 670000}, {"size": "50g", "price": 1010000}, {"size": "100g", "price": 1680000}]},
+            {"name": "ناسوماتو پاردون", "sizes": [{"size": "30g", "price": 1680000}, {"size": "50g", "price": 2520000}, {"size": "100g", "price": 3900000}]},
+            {"name": "ناسوماتو نودا", "sizes": [{"size": "30g", "price": 1680000}, {"size": "50g", "price": 2520000}, {"size": "100g", "price": 3900000}]},
+            {"name": "کرید سیلور مانتین", "sizes": [{"size": "30g", "price": 1050000}, {"size": "50g", "price": 1580000}, {"size": "100g", "price": 2620000}]},
+            {"name": "کرید اونتوس", "sizes": [{"size": "30g", "price": 1050000}, {"size": "50g", "price": 1580000}, {"size": "100g", "price": 2620000}]},
+            {"name": "کرید زنانه", "sizes": [{"size": "30g", "price": 1050000}, {"size": "50g", "price": 1580000}, {"size": "100g", "price": 2620000}]},
+            {"name": "کرید میلیسیم", "sizes": [{"size": "30g", "price": 1050000}, {"size": "50g", "price": 1580000}, {"size": "100g", "price": 2620000}]},
+            {"name": "دیور هوم", "sizes": [{"size": "30g", "price": 840000}, {"size": "50g", "price": 1260000}, {"size": "100g", "price": 2100000}]},
+            {"name": "دیور هوم اینتنس", "sizes": [{"size": "30g", "price": 840000}, {"size": "50g", "price": 1260000}, {"size": "100g", "price": 2100000}]},
+            {"name": "عود الله زنانه", "sizes": [{"size": "30g", "price": 1050000}, {"size": "50g", "price": 1580000}, {"size": "100g", "price": 2620000}]},
+            {"name": "عود الله مردانه", "sizes": [{"size": "30g", "price": 1050000}, {"size": "50g", "price": 1580000}, {"size": "100g", "price": 2620000}]},
+            {"name": "کرید وایکینگ", "sizes": [{"size": "30g", "price": 1050000}, {"size": "50g", "price": 1580000}, {"size": "100g", "price": 2620000}]}
+        ];
+        
+        // Function to format price with commas
+        function formatPrice(price) {
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+        
+        // Generate perfume cards
+        const perfumesGrid = document.getElementById('perfumes-grid');
+        
+        perfumeData.forEach(perfume => {
+            const perfumeCard = document.createElement('div');
+            perfumeCard.className = 'perfume-card bg-white rounded-lg shadow-md overflow-hidden';
+            
+            const perfumeImage = document.createElement('div');
+            perfumeImage.className = 'perfume-image h-40 flex items-center justify-center';
+            perfumeImage.innerHTML = `<i class="fas fa-spray-can-sparkles text-white text-4xl"></i>`;
+            
+            const perfumeInfo = document.createElement('div');
+            perfumeInfo.className = 'p-6';
+            
+            const perfumeName = document.createElement('h3');
+            perfumeName.className = 'text-xl font-bold mb-4 text-gray-800';
+            perfumeName.textContent = perfume.name;
+            
+            const sizesList = document.createElement('div');
+            sizesList.className = 'space-y-3';
+            
+            perfume.sizes.forEach(size => {
+                const sizeItem = document.createElement('div');
+                sizeItem.className = 'flex justify-between items-center border-b border-gray-200 pb-2';
+                
+                const sizeLabel = document.createElement('span');
+                sizeLabel.className = 'text-gray-600';
+                sizeLabel.textContent = `شیشه ${size.size}`;
+                
+                const priceLabel = document.createElement('span');
+                priceLabel.className = 'price-tag text-lg font-bold';
+                priceLabel.textContent = `${formatPrice(size.price)} تومان`;
+                
+                sizeItem.appendChild(sizeLabel);
+                sizeItem.appendChild(priceLabel);
+                sizesList.appendChild(sizeItem);
+            });
+            
+            perfumeInfo.appendChild(perfumeName);
+            perfumeInfo.appendChild(sizesList);
+            
+            perfumeCard.appendChild(perfumeImage);
+            perfumeCard.appendChild(perfumeInfo);
+            
+            perfumesGrid.appendChild(perfumeCard);
+        });
+    </script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDotdVoT8x8Z6A%2FNNewhih8zeOOKGjbSbSPwBIAqKY48WLFcVN1Og1UY4lXbhzuEmcm8A%2BiUuSlWeRM9k9es3CIQO0TrSF10oSW4ftmjGevVVyaxM8RuuSF%2Bz%2BAMA5Nal4%2FmmUFdi42FJqaasoUVSLvuCdOE8RNFAqs0n45vduVeR546BZax2je75kD6JcX14SnlsUfz%2BSWJHHCm%2FKG3CLmVU%2B7VktV3yz14MFPMVGw5xQH82NNiVxhx0b93g%2Fb3v0VNp4EfXMuKbnpMgvB6pj30x7vvPQ%2BZ4rX8n9FfI8bGXLM53rj78Nj5nI8Rmu0qOD3ckaMqx4NCnoOmJXGvplKR%2B1xp%2BEZ%2FFM%2FyYUf9mrkknO%2BAC4u1WNkShIOuY%2BxR3AIq0%2FBslBEDXxSYcvzHj52aZMKl6Q33itI5nCmLv1rEYhppQnpRR64LuALl%2BtIfukLMfzuM41hZMYp5gzM7cAJ4246s6W%2Br2MzRAzF0dJpTpO3fUSRl4J8ufJc4bEchQSQ%3D%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDotdVoT8x8Z6A/NNewhih8zeOOKGjbSbSPwBIAqKY48WLFcVN1Og1UY4lXbhzuEmcm8A+iUuSlWeRM9k9es3CIQO0TrSF10oSW4ftmjGevVVyaxM8RuuSF+z+AMA5Nal4/mmUFdi42FJqaasoUVSLvuCdOE8RNFAqs0n45vduVeR546BZax2je75kD6JcX14SnlsUfz+SWJHHCm/KG3CLmVU+7VktV3yz14MFPMVGw5xQH82NNiVxhx0b93g/b3v0VNp4EfXMuKbnpMgvB6pj30x7vvPQ+Z4rX8n9FfI8bGXLM53rj78Nj5nI8Rmu0qOD3ckaMqx4NCnoOmJXGvplKR+1xp+EZ/FM/yYUf9mrkknO+AC4u1WNkShIOuY+xR3AIq0/BslBEDXxSYcvzHj52aZMKl6Q33itI5nCmLv1rEYhppQnpRR64LuALl+tIfukLMfzuM41hZMYp5gzM7cAJ4246s6W+r2MzRAzF0dJpTpO3fUSRl4J8ufJc4bEchQSQ==";
+    </script>
+    
+        <script id="html_badge_script2" src="https://www.genspark.ai/html_badge.js"></script>
+        
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    
