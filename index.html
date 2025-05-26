@@ -3,796 +3,611 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>کالکشن عطر‌های لوکس | PERFUME VESSAL</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap">
+    <meta name="description" content="مرکز فروش عطرهای اورجینال و لوکس با کیفیت تضمین شده">
+    <title>PERFUME VESSAL | مرکز فروش عطرهای اورجینال</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/vazirmatn@5.0.0/index.min.css" rel="stylesheet">
     <style>
-        :root {
-            --teal-dark: #104e4e;
-            --teal-medium: #176e6e;
-            --teal-light: #1a8e8e;
-            --gold: linear-gradient(135deg, #f6e27a 0%, #d4af37 100%);
-            --gold-hover: linear-gradient(135deg, #d4af37 0%, #f6e27a 100%);
-        }
-        
         body {
-            font-family: 'Vazirmatn', sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-            margin: 0;
-            padding: 0;
+            font-family: 'Vazirmatn', 'Roboto', sans-serif;
+            background-color: #F5F1E9;
         }
-        
-        .header {
-            background-color: var(--teal-dark);
-            color: white;
-            padding: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
         }
-        
-        .logo {
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .perfume-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .perfume-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .filter-link.active {
+            color: #2C2C2C;
             font-weight: bold;
-            font-size: 1.5rem;
-            color: white;
+            border-bottom: 2px solid #2C2C2C;
         }
-        
-        .login-btn {
-            background-color: #e74c3c;
-            color: white;
-            border: none;
-            border-radius: 20px;
-            padding: 8px 16px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-        }
-        
-        .login-btn:hover {
-            background-color: #c0392b;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        .title {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .title h1 {
-            font-size: 2.5rem;
-            color: var(--teal-dark);
-            margin-bottom: 0.5rem;
-        }
-        
-        .title p {
-            font-size: 1.2rem;
-            color: #666;
-        }
-        
         .search-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 2rem;
-        }
-        
-        .search-box {
             position: relative;
-            width: 100%;
             max-width: 500px;
+            margin: 0 auto;
         }
-        
-        .search-icon {
+        .search-container input {
+            padding-right: 2.5rem;
+        }
+        .search-container::after {
+            content: '🔍';
             position: absolute;
-            left: 12px;
+            right: 10px;
             top: 50%;
             transform: translateY(-50%);
-            color: #777;
+            font-size: 1.2rem;
+            color: #2C2C2C;
         }
-        
-        .search-input {
-            width: 100%;
-            padding: 12px 20px 12px 40px;
-            border: 2px solid #ddd;
-            border-radius: 25px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-        
-        .search-input:focus {
-            outline: none;
-            border-color: var(--teal-light);
-            box-shadow: 0 0 0 3px rgba(26, 142, 142, 0.2);
-        }
-        
-        .filters {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .filter-btn {
-            background-color: white;
-            border: 2px solid #ddd;
-            border-radius: 20px;
-            padding: 8px 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-        
-        .filter-btn:hover {
-            border-color: var(--teal-light);
-        }
-        
-        .filter-btn.active {
-            background-color: var(--teal-medium);
-            color: white;
-            border-color: var(--teal-medium);
-        }
-        
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .product-card {
-            background-color: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        
-        .product-image {
-            height: 180px;
-            background: var(--gold);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        
-        .product-image i {
-            font-size: 3rem;
-            color: white;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-        }
-        
-        .product-info {
-            padding: 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .product-title {
-            font-size: 1.25rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            text-align: center;
-            color: var(--teal-dark);
-        }
-        
-        .product-sizes {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .size-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.9rem;
-        }
-        
-        .size-label {
-            color: #777;
-        }
-        
-        .price {
-            font-weight: bold;
-            color: #333;
-        }
-        
-        .add-to-cart {
-            background-color: var(--teal-medium);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            padding: 10px;
-            cursor: pointer;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            margin-top: auto;
-        }
-        
-        .add-to-cart:hover {
-            background-color: var(--teal-dark);
-        }
-        
-        .footer {
-            background-color: var(--teal-dark);
-            color: white;
-            padding: 2rem;
-            margin-top: 4rem;
-            text-align: center;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .footer-logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-        
-        .footer-description {
-            margin-bottom: 2rem;
-            color: #ccc;
-        }
-        
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-        
-        .social-icon {
-            background-color: rgba(255, 255, 255, 0.2);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-        
-        .social-icon:hover {
-            background-color: rgba(255, 255, 255, 0.4);
-            transform: translateY(-3px);
-        }
-        
-        .copyright {
-            color: #ccc;
-            font-size: 0.9rem;
-        }
-        
-        .hidden {
-            display: none;
-        }
-        
-        @media (max-width: 768px) {
-            .products {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-                gap: 1.5rem;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            .products {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-                gap: 1rem;
-            }
-            
-            .product-image {
-                height: 150px;
-            }
-            
-            .product-info {
-                padding: 1rem;
-            }
-            
-            .product-title {
-                font-size: 1.1rem;
-            }
-        }
-        
-        /* Animation for product cards */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .product-card {
-            animation: fadeIn 0.5s ease-out forwards;
-        }
-        
-        .product-card:nth-child(1) { animation-delay: 0.1s; }
-        .product-card:nth-child(2) { animation-delay: 0.2s; }
-        .product-card:nth-child(3) { animation-delay: 0.3s; }
-        .product-card:nth-child(4) { animation-delay: 0.4s; }
-        .product-card:nth-child(5) { animation-delay: 0.5s; }
-        .product-card:nth-child(6) { animation-delay: 0.6s; }
-        .product-card:nth-child(7) { animation-delay: 0.7s; }
-        .product-card:nth-child(8) { animation-delay: 0.8s; }
-        .product-card:nth-child(9) { animation-delay: 0.9s; }
-        .product-card:nth-child(10) { animation-delay: 1.0s; }
-        .product-card:nth-child(11) { animation-delay: 1.1s; }
-        .product-card:nth-child(12) { animation-delay: 1.2s; }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <button class="login-btn">
-            <i class="fas fa-user"></i>
-            ورود / ثبت نام
-        </button>
-        <div class="logo">PERFUME VESSAL | مرکز فروش عطرهای اورجینال</div>
+    <header class="bg-[#2C2C2C] text-white py-6">
+        <div class="container mx-auto text-center fade-in">
+            <h1 class="text-4xl md:text-5xl font-bold">PERFUME VESSAL</h1>
+            <p class="text-lg md:text-xl mt-2">مرکز فروش عطرهای اورجینال</p>
+        </div>
     </header>
-    
-    <!-- Main Content -->
-    <div class="container">
-        <!-- Title Section -->
-        <div class="title">
-            <h1>کالکشن عطرهای لوکس</h1>
-            <p>مجموعه‌ای از بهترین و خوشبوترین عطرها با کیفیت تضمین شده</p>
+
+    <section class="container mx-auto py-12 text-center">
+        <h2 class="text-3xl md:text-4xl font-semibold mb-4">کالکشن عطرهای لوکس</h2>
+        <p class="text-gray-700 mb-8 text-lg">مجموعه‌ای از بهترین و خوشبوترین عطرها با کیفیت تضمین شده</p>
+        <div class="search-container mb-8">
+            <input type="text" id="searchInput" placeholder="جستجوی عطر..." class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#2C2C2C] text-right text-lg">
         </div>
-        
-        <!-- Search Bar -->
-        <div class="search-container">
-            <div class="search-box">
-                <i class="fas fa-search search-icon"></i>
-                <input type="text" class="search-input" id="search-input" placeholder="جستجوی نام عطر..." />
-            </div>
+    </section>
+
+    <nav class="container mx-auto mb-12">
+        <ul class="flex justify-center space-x-6 space-x-reverse">
+            <li><a href="#" class="filter-link text-[#2C2C2C] hover:text-gray-700 font-medium text-lg active" data-filter="all">همه</a></li>
+            <li><a href="#" class="filter-link text-[#2C2C2C] hover:text-gray-700 font-medium text-lg" data-filter="men">مردانه</a></li>
+            <li><a href="#" class="filter-link text-[#2C2C2C] hover:text-gray-700 font-medium text-lg" data-filter="women">زنانه</a></li>
+            <li><a href="#" class="filter-link text-[#2C2C2C] hover:text-gray-700 font-medium text-lg" data-filter="unisex">یونیسکس</a></li>
+        </ul>
+    </nav>
+
+    <section id="perfumeList" class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
+        <!-- استیل جنیفر -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="men">
+            <img src="https://via.placeholder.com/150" alt="استیل جنیفر" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">استیل جنیفر</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
         </div>
-        
-        <!-- Filters -->
-        <div class="filters">
-            <button class="filter-btn active" data-category="all">همه</button>
-            <button class="filter-btn" data-category="men">مردانه</button>
-            <button class="filter-btn" data-category="women">زنانه</button>
-            <button class="filter-btn" data-category="unisex">یونیسکس</button>
+
+        <!-- سیلور مانتیان -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="men">
+            <img src="https://via.placeholder.com/150" alt="سیلور مانتیان" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">سیلور مانتیان</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
         </div>
-        
-        <!-- Products Grid -->
-        <div class="products" id="products-container">
-            <!-- Product 1 -->
-            <div class="product-card" data-name="استیل لوور" data-category="men">
-                <div class="product-image">
-                    <i class="fas fa-spray-can-sparkles"></i>
-                </div>
-                <div class="product-info">
-                    <div class="product-title">استیل لوور</div>
-                    <div class="product-sizes">
-                        <div class="size-row">
-                            <span class="size-label">شیشه 30g</span>
-                            <span class="price">500,000 تومان</span>
-                        </div>
-                        <div class="size-row">
-                            <span class="size-label">شیشه 50g</span>
-                            <span class="price">700,000 تومان</span>
-                        </div>
-                        <div class="size-row">
-                            <span class="size-label">شیشه 100g</span>
-                            <span class="price">1,260,000 تومان</span>
-                        </div>
-                    </div>
-                    <button class="add-to-cart">
-                        <i class="fas fa-shopping-cart"></i>
-                        افزودن به سبد خرید
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Product 2 -->
-            <div class="product-card" data-name="سیلور مانتین" data-category="unisex">
-                <div class="product-image">
-                    <i class="fas fa-spray-can-sparkles"></i>
-                </div>
-                <div class="product-info">
-                    <div class="product-title">سیلور مانتین</div>
-                    <div class="product-sizes">
-                        <div class="size-row">
-                            <span class="size-label">شیشه 30g</span>
-                            <span class="price">670,000 تومان</span>
-                        </div>
-                        <div class="size-row">
-                            <span class="size-label">شیشه 50g</span>
-                            <span class="price">1,010,000 تومان</span>
-                        </div>
-                        <div class="size-row">
-                            <span class="size-label">شیشه 100g</span>
-                            <span class="price">1,680,000 تومان</span>
-                        </div>
-                    </div>
-                    <button class="add-to-cart">
-                        <i class="fas fa-shopping-cart"></i>
-                        افزودن به سبد خرید
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Product 3 -->
-            <div class="product-card" data-name="کوکوشنل" data-category="women">
-                <div class="product-image">
-                    <i class="fas fa-spray-can-sparkles"></i>
-                </div>
-                <div class="product-info">
-                    <div class="product-title">کوکوشنل</div>
-                    <div class="product-sizes">
-                        <div class="size-row">
-                            <span class="size-label">شیشه 30g</span>
-                            <span class="price">670,000 تومان</span>
-                        </div>
-                        <div class="size-row">
-                            <span class="size-label">شیشه 50g</span>
-                            <span class="price">1,010,000 تومان</span>
-                        </div>
-                        <div class="size-row">
-                            <span class="size-label">شیشه 100g</span>
-                            <span class="price">1,680,000 تومان</span>
-                        </div>
-                    </div>
-                    <button class="add-to-cart">
-                        <i class="fas fa-shopping-cart"></i>
-                        افزودن به سبد خرید
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Product 4 -->
-            <div class="product-card" data-name="لانکوم لاویه بل" data-category="women">
-                <div class="product-image">
-                    <i class="fas fa-spray-can-sparkles"></i>
-                </div>
-                <div class="product-info">
-                    <div class="product-title">لانکوم لاویه بل</div>
-                    <div class="product-sizes">
-                        <div class="size-row">
-                            <span class="size-label">شیشه 30g</span>
-                            <span class="price">580,000 تومان</span>
-                        </div>
-                        <div class="size-row">
-                            <span class="size-label">شیشه 50g</span>
-                            <span class="price">860,000 تومان</span>
-                        </div>
-                        <div class="size-row">
-                            <span class="size-label">شیشه 100g</span>
-                            <span class="price">1,440,000 تومان</span>
-                        </div>
-                    </div>
-                    <button class="add-to-cart">
-                        <i class="fas fa-shopping-cart"></i>
-                        افزودن به سبد خرید
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Product 5 -->
-            <div class="product-card" data-name="لانک مور" data-category="men">
-                <div class="product-image">
-                    <i class="fas fa-spray-can-sparkles"></i>
-                </div>
-                <div class="product-info">
-                    <div class="product-title">لانک مور</div>
-                    <div class="product-sizes">
-                        <div class="size-row">
-                            <span class="size-label">شیشه 30g</span>
-                            <span class="price">670,000 تومان</span>
-                        </div>
-                        <div class="size-row">
-                            <span class="size-label">شیشه 50g</span>
-                            <span class="price">1,010,000 تومان</span>
-                        </div>
-                        <div class="size-row">
-                            <span class="size-label">شیشه 100g</span>
-                            <span class="price">1,680,000 تومان</span>
-                        </div>
-                    </div>
-                    <button class="add-to-cart">
-                        <i class="fas fa-shopping-cart"></i>
-                        افزودن به سبد خرید
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Product 6 -->
-            <div class="product-card" data-name="مارلی" data-category="unisex">
-                <div class="product-image">
-                    <i class="fas fa-spray-can-sparkles"></i>
-                </div>
-                <div class="product-info">
-                    <div class="product-title">مارلی</div>
-                    <div class="product-sizes">
-                        <div class="size-row">
-                            <span class="size-label">شیشه 30g</span>
-                            <span class="price">670,000 تومان</span>
-                        </div>
-                        <div class="size-row">
-                            <span class="size-label">شیشه 50g</span>
-                            <span class="price">1,010,000 تومان</span>
-                        </div>
-                        <div class="size-row">
-                            <span class="size-label">شیشه 100g</span>
-                            <span class="price">1,680,000 تومان</span>
-                        </div>
-                    </div>
-                    <button class="add-to-cart">
-                        <i class="fas fa-shopping-cart"></i>
-                        افزودن به سبد خرید
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Product 7 -->
-            <div class="product-card" data-name="مکامره" data-category="men">
-                <div class="product-image">
-                    <i class="fas fa-spray-can-sparkles"></i>
-                </div>
-                <div class="product-info">
-                    <div class="product-title">مکامره</div>
-                    <div class="product-sizes">
-                        <div class="size-row">
-                            <span class="size-label">شیشه 30g</span>
-                            <span class="price">840,000 تومان</span>
-                        </div>
-                        <div class="size-row">
-                            <span class="size-label">شیشه 50g</span>
-                            <span class="price">1,260,000 تومان</span>
-                        </div>
-                        <div class="size-row">
-                            <span class="size-label">شیشه 100g</span>
-                            <span class="price">2,100,000 تومان</span>
-                        </div>
-                    </div>
-                    <button class="add-to-cart">
-                        <i class="fas fa-shopping-cart"></i>
-                        افزودن به سبد خرید
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Product 8 -->
-            <div class="product-card" data-name="فارنهایت" data-category="men">
-                <div class="product-image">
-                    <i class="fas fa-spray-can-sparkles"></i>
-                </div>
-                <div class="product-info">
-                    <div class="product-title">فارنهایت</div>
-                    <div class="product-sizes">
-                        <div class="size-row">
-                            <span class="size-label">شیشه 30g</span>
-                            <span class="price">670,000 تومان</span>
-                        </div>
-                        <div class="size-row">
-                            <span class="size-label">شیشه 50g</span>
-                            <span class="price">1,010,000 تومان</span>
-                        </div>
-                        <div class="size-row">
-                            <span class="size-label">شیشه 100g</span>
-                            <span class="price">1,680,000 تومان</span>
-                        </div>
-                    </div>
-                    <button class="add-to-cart">
-                        <i class="fas fa-shopping-cart"></i>
-                        افزودن به سبد خرید
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Product 9 -->
-            <div class="product-card" data-name="دیور هوم اینتنس" data-category="men">
-                <div class="product-image">
-                    <i class="fas fa-spray-can-sparkles"></i>
-                </div>
-                <div class="product-info">
-                    <div class="product-title">دیور هوم اینتنس</div>
-                    <div class="product-sizes">
-                        <div class="size-row">
-                            <span class="size-label">شیشه 30g</span>
-                            <span class="price">840,000 تومان</span>
-                        </div>
-                        <div class="size-row">
-                            <span class="size-label">شیشه 50g</span>
-                            <span class="price">1,260,000 تومان</span>
-                        </div>
-                        <div class="size-row">
-                            <span class="size-label">شیشه 100g</span>
-                            <span class="price">2,100,000 تومان</span>
-                        </div>
-                    </div>
-                    <button class="add-to-cart">
-                        <i class="fas fa-shopping-cart"></i>
-                        افزودن به سبد خرید
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Product 10 -->
-            <div class="product-card" data-name="ساواج" data-category="men">
-                <div class="product-image">
-                    <i class="fas fa-spray-can-sparkles"></i>
-                </div>
-                <div class="product-info">
-                    <div class="product-title">ساواج</div>
-                    <div class="product-sizes">
-                        <div class="size-row">
-                            <span class="size-label">شیشه 30g</span>
-                            <span class="price">670,000 تومان</span>
-                        </div>
-                        <div class="size-row">
-                            <span class="size-label">شیشه 50g</span>
-                            <span class="price">1,010,000 تومان</span>
-                        </div>
-                        <div class="size-row">
-                            <span class="size-label">شیشه 100g</span>
-                            <span class="price">1,680,000 تومان</span>
-                        </div>
-                    </div>
-                    <button class="add-to-cart">
-                        <i class="fas fa-shopping-cart"></i>
-                        افزودن به سبد خرید
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Product 11 -->
-            <div class="product-card" data-name="212 سکسی زنانه" data-category="women">
-                <div class="product-image">
-                    <i class="fas fa-spray-can-sparkles"></i>
-                </div>
-                <div class="product-info">
-                    <div class="product-title">212 سکسی زنانه</div>
-                    <div class="product-sizes">
-                        <div class="size-row">
-                            <span class="size-label">شیشه 30g</span>
-                            <span class="price">590,000 تومان</span>
-                        </div>
-                        <div class="size-row">
-                            <span class="size-label">شیشه 50g</span>
-                            <span class="price">860,000 تومان</span>
-                        </div>
-                        <div class="size-row">
-                            <span class="size-label">شیشه 100g</span>
-                            <span class="price">1,440,000 تومان</span>
-                        </div>
-                    </div>
-                    <button class="add-to-cart">
-                        <i class="fas fa-shopping-cart"></i>
-                        افزودن به سبد خرید
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Product 12 -->
-            <div class="product-card" data-name="ورساچه اروس" data-category="men">
-                <div class="product-image">
-                    <i class="fas fa-spray-can-sparkles"></i>
-                </div>
-                <div class="product-info">
-                    <div class="product-title">ورساچه اروس</div>
-                    <div class="product-sizes">
-                        <div class="size-row">
-                            <span class="size-label">شیشه 30g</span>
-                            <span class="price">670,000 تومان</span>
-                        </div>
-                        <div class="size-row">
-                            <span class="size-label">شیشه 50g</span>
-                            <span class="price">1,010,000 تومان</span>
-                        </div>
-                        <div class="size-row">
-                            <span class="size-label">شیشه 100g</span>
-                            <span class="price">1,680,000 تومان</span>
-                        </div>
-                    </div>
-                    <button class="add-to-cart">
-                        <i class="fas fa-shopping-cart"></i>
-                        افزودن به سبد خرید
-                    </button>
-                </div>
-            </div>
+
+        <!-- کوکوشنل -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="women">
+            <img src="https://via.placeholder.com/150" alt="کوکوشنل" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">کوکوشنل</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
         </div>
-    </div>
-    
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-logo">PERFUME VESSAL</div>
-            <div class="footer-description">مرکز فروش عطرهای اورجینال و با کیفیت</div>
-            <div class="social-icons">
-                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-            </div>
-            <div class="copyright">© ۱۴۰۲ - تمامی حقوق برای Perfume Vessal محفوظ است.</div>
+
+        <!-- لانکوم لاویه بل -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="women">
+            <img src="https://via.placeholder.com/150" alt="لانکوم لاویه بل" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">لانکوم لاویه بل</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- لالیک مور -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="women">
+            <img src="https://via.placeholder.com/150" alt="لالیک مور" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">لالیک مور</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- مای وی -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="women">
+            <img src="https://via.placeholder.com/150" alt="مای وی" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">مای وی</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- مگاماره -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="unisex">
+            <img src="https://via.placeholder.com/150" alt="مگاماره" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">مگاماره</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- فارنهایت -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="men">
+            <img src="https://via.placeholder.com/150" alt="فارنهایت" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">فارنهایت</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- فرعون -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="men">
+            <img src="https://via.placeholder.com/150" alt="فرعون" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">فرعون</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- فلور نارکوتیک -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="women">
+            <img src="https://via.placeholder.com/150" alt="فلور نارکوتیک" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">فلور نارکوتیک</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- گلوی مارلی -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="unisex">
+            <img src="https://via.placeholder.com/150" alt="گلوی مارلی" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">گلوی مارلی</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- کیرکه تیزیانا -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="unisex">
+            <img src="https://via.placeholder.com/150" alt="کیرکه تیزیانا" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">کیرکه تیزیانا</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- گرینلی مارلی -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="unisex">
+            <img src="https://via.placeholder.com/150" alt="گرینلی مارلی" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">گرینلی مارلی</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- خمره قهوه -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="unisex">
+            <img src="https://via.placeholder.com/150" alt="خمره قهوه" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">خمره قهوه</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- اوصاف -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="unisex">
+            <img src="https://via.placeholder.com/150" alt="اوصاف" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">اوصاف</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- آزارا کروم -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="unisex">
+            <img src="https://via.placeholder.com/150" alt="آزارا کروم" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">آزارا کروم</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- اسپلندور -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="unisex">
+            <img src="https://via.placeholder.com/150" alt="اسپلندور" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">اسپلندور</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- اسنتو سوسپیرو -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="unisex">
+            <img src="https://via.placeholder.com/150" alt="اسنتو سوسپیرو" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">اسنتو سوسپیرو</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- افوریا -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="unisex">
+            <img src="https://via.placeholder.com/150" alt="افوریا" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">افوریا</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- آمواج هانر -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="unisex">
+            <img src="https://via.placeholder.com/150" alt="آمواج هانر" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">آمواج هانر</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- دیورهوم اینتنس -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="men">
+            <img src="https://via.placeholder.com/150" alt="دیورهوم اینتنس" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">دیورهوم اینتنس</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- ساواج -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="men">
+            <img src="https://via.placeholder.com/150" alt="ساواج" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">ساواج</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- شیخ 77 -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="men">
+            <img src="https://via.placeholder.com/150" alt="شیخ 77" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">شیخ 77</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- 212 سکسی زنانه -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="women">
+            <img src="https://via.placeholder.com/150" alt="212 سکسی زنانه" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">212 سکسی زنانه</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- ورسوز -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="men">
+            <img src="https://via.placeholder.com/150" alt="ورسوز" class Katie="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">ورسوز</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- وری سکسی -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="women">
+            <img src="https://via.placeholder.com/150" alt="وری سکسی" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">وری سکسی</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- 212VIP -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="unisex">
+            <img src="https://via.placeholder.com/150" alt="212VIP" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">212VIP</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- میس دیور شری -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="women">
+            <img src="https://via.placeholder.com/150" alt="میس دیور شری" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">میس دیور شری</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- اروس آبی -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="men">
+            <img src="https://via.placeholder.com/150" alt="اروس آبی" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">اروس آبی</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- برایت کریستال -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="women">
+            <img src="https://via.placeholder.com/150" alt="برایت کریستال" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">برایت کریستال</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- بلک اپیوم -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="women">
+            <img src="https://via.placeholder.com/150" alt="بلک اپیوم" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">بلک اپیوم</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- مولکول -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="unisex">
+            <img src="https://via.placeholder.com/150" alt="مولکول" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">مولکول</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- مولکول H -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="unisex">
+            <img src="https://via.placeholder.com/150" alt="مولکول H" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">مولکول H</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- بولگاری آکوا -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="men">
+            <img src="https://via.placeholder.com/150" alt="بولگاری آکوا" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">بولگاری آکوا</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- الکساندریا -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="unisex">
+            <img src="https://via.placeholder.com/150" alt="الکساندریا" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">الکساندریا</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- کالیفرنیا دریم -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="women">
+            <img src="https://via.placeholder.com/150" alt="کالیفرنیا دریم" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">کالیفرنیا دریم</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- پسیفیک چیل -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="unisex">
+            <img src="https://via.placeholder.com/150" alt="پسیفیک چیل" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">پسیفیک چیل</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- ال ایمنسیت -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="unisex">
+            <img src="https://via.placeholder.com/150" alt="ال ایمنسیت" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">ال ایمنسیت</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- تایگار -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="men">
+            <img src="https://via.placeholder.com/150" alt="تایگار" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">تایگار</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+
+        <!-- گران بالو -->
+        <div class="perfume-card bg-white rounded-xl shadow-lg p-6" data-category="unisex">
+            <img src="https://via.placeholder.com/150" alt="گران بالو" class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-semibold mb-4">گران بالو</h3>
+            <ul class="text-gray-600 mb-4">
+                <li class="mb-2">شیشه 30g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 50g: <span class="font-bold">--- تومان</span></li>
+                <li class="mb-2">شیشه 100g: <span class="font-bold">--- تومان</span></li>
+            </ul>
+            <a href="#" class="block text-center bg-[#2C2C2C] text-white py-2 rounded-lg hover:bg-gray-700 transition">مشاهده جزئیات</a>
+        </div>
+    </section>
+
+    <footer class="bg-[#2C2C2C] text-white py-6 mt-12">
+        <div class="container mx-auto text-center">
+            <p class="text-lg">© 2025 PERFUME VESSAL. تمامی حقوق محفوظ است.</p>
         </div>
     </footer>
-    
+
     <script>
+        const searchInput = document.getElementById('searchInput');
+        const perfumeCards = document.querySelectorAll('.perfume-card');
+        const filterLinks = document.querySelectorAll('.filter-link');
+
         // Search functionality
-        const searchInput = document.getElementById('search-input');
-        const productsContainer = document.getElementById('products-container');
-        const productCards = productsContainer.querySelectorAll('.product-card');
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        
-        // Search function
         searchInput.addEventListener('input', function() {
             const searchTerm = this.value.trim().toLowerCase();
-            
-            productCards.forEach(card => {
-                const productName = card.getAttribute('data-name').toLowerCase();
-                
-                if (productName.includes(searchTerm)) {
-                    card.classList.remove('hidden');
+
+            perfumeCards.forEach(card => {
+                const perfumeName = card.querySelector('h3').textContent.toLowerCase();
+                const matchesSearch = perfumeName.includes(searchTerm);
+                const category = card.getAttribute('data-category');
+                const activeFilter = document.querySelector('.filter-link.active').getAttribute('data-filter');
+
+                if (matchesSearch && (activeFilter === 'all' || activeFilter === category)) {
+                    card.style.display = 'block';
                 } else {
-                    card.classList.add('hidden');
+                    card.style.display = 'none';
                 }
             });
         });
-        
+
         // Filter functionality
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                // Remove active class from all buttons
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                
-                // Add active class to clicked button
+        filterLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                filterLinks.forEach(l => l.classList.remove('active'));
                 this.classList.add('active');
-                
-                const category = this.getAttribute('data-category');
-                
-                productCards.forEach(card => {
-                    if (category === 'all' || card.getAttribute('data-category') === category) {
-                        card.classList.remove('hidden');
+
+                const filter = this.getAttribute('data-filter');
+                const searchTerm = searchInput.value.trim().toLowerCase();
+
+                perfumeCards.forEach(card => {
+                    const perfumeName = card.querySelector('h3').textContent.toLowerCase();
+                    const category = card.getAttribute('data-category');
+                    const matchesSearch = perfumeName.includes(searchTerm);
+
+                    if ((filter === 'all' || category === filter) && matchesSearch) {
+                        card.style.display = 'block';
                     } else {
-                        card.classList.add('hidden');
+                        card.style.display = 'none';
                     }
                 });
-            });
-        });
-        
-        // Add to cart functionality (demo only)
-        const addToCartButtons = document.querySelectorAll('.add-to-cart');
-        
-        addToCartButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const productCard = this.closest('.product-card');
-                const productName = productCard.querySelector('.product-title').textContent;
-                
-                // Change button text temporarily to show confirmation
-                const originalText = this.innerHTML;
-                this.innerHTML = '<i class="fas fa-check"></i> به سبد خرید اضافه شد';
-                this.style.backgroundColor = '#27ae60';
-                
-                setTimeout(() => {
-                    this.innerHTML = originalText;
-                    this.style.backgroundColor = '';
-                }, 2000);
             });
         });
     </script>
