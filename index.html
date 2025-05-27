@@ -38,845 +38,888 @@
         return gk_fileData[filename] || "";
         }
         </script><!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PERFUME VESSAL</title>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+    <title>PERFUME VESSAL - مرکز فروش عطرهای اورجینال</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        @import url('https://v1.fontapi.ir/css/Vazir');
         body {
-            font-family: 'Vazirmatn', Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #000000;
+            font-family: 'Vazir', Arial, sans-serif;
+            background: linear-gradient(135deg, #f4f4f4, #e0e0e0);
+            margin: 0;
+            padding: 20px;
+            color: #1A1A1A;
             line-height: 1.6;
-            direction: rtl;
+            overflow-x: hidden;
         }
-
-        header {
-            background-color: #556B2F;
-            color: #ffffff;
-            text-align: center;
-            padding: 2rem 1rem;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        header p {
-            font-size: 1.2rem;
-        }
-
-        header a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 700;
-        }
-
-        header a:hover {
-            text-decoration: underline;
-        }
-
-        section {
+        .container {
             max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
-
-        section h2 {
-            font-size: 2rem;
-            color: #556B2F;
+        .header {
             text-align: center;
-            margin-bottom: 1rem;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #355E3B, #1A1A1A);
+            color: #fff;
+            border-radius: 10px 10px 0 0;
         }
-
-        section p {
-            font-size: 1.1rem;
+        .header h1 {
+            font-size: 2.8em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .header p {
+            font-size: 1.2em;
+            margin: 10px 0;
+            color: #e0e0e0;
+        }
+        .search-bar {
+            margin: 20px 0;
             text-align: center;
-            margin-bottom: 1.5rem;
+            position: relative;
         }
-
-        .filter-buttons {
+        .search-bar input {
+            padding: 12px 40px 12px 20px;
+            width: 80%;
+            max-width: 500px;
+            border: 1px solid #1A1A1A;
+            border-radius: 25px;
+            font-size: 1em;
+            outline: none;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .search-bar i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #355E3B;
+        }
+        .filters {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
         }
-
-        .filter-buttons button {
-            background-color: #556B2F;
-            color: #ffffff;
+        .filters button {
+            padding: 12px 25px;
             border: none;
-            padding: 0.75rem 1.5rem;
-            font-size: 1.1rem;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #4a4a4a, #2c2c2c);
+            color: #fff;
             cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
         }
-
-        .filter-buttons button:hover {
-            background-color: #3e4f22;
+        .filters button.active, .filters button:hover {
+            background: linear-gradient(135deg, #355E3B, #2a3d2f);
+            transform: scale(1.05);
         }
-
-        .perfume-grid {
+        .products {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
         }
-
-        .perfume-card {
-            background-color: #ffffff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .perfume-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .perfume-card h3 {
-            font-size: 1.5rem;
-            color: #556B2F;
-            margin-bottom: 0.5rem;
-        }
-
-        .perfume-card p {
-            font-size: 1.1rem;
-            color: #000000;
-            margin-bottom: 0.5rem;
-            text-align: right;
-        }
-
-        .perfume-card p.price {
-            color: #556B2F;
-            font-weight: 700;
-        }
-
-        footer {
-            background-color: #000000;
-            color: #ffffff;
+        .product {
+            background: #fff;
+            border: 1px solid #1A1A1A;
+            border-radius: 12px;
+            padding: 20px;
             text-align: center;
-            padding: 1rem;
-            margin-top: 2rem;
+            transition: all 0.3s ease;
+            animation: fadeIn 0.5s ease-in-out;
         }
-
-        footer p {
-            font-size: 1rem;
+        .product:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2rem;
-            }
-
-            header p {
-                font-size: 1rem;
-            }
-
-            section h2 {
-                font-size: 1.8rem;
-            }
-
-            .filter-buttons button {
-                font-size: 1rem;
-                padding: 0.5rem 1rem;
-            }
-
-            .perfume-card h3 {
-                font-size: 1.3rem;
-            }
-
-            .perfume-card p {
-                font-size: 1rem;
-            }
+        .product-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 10px;
+            background: linear-gradient(135deg, #355E3B, #2a3d2f);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
         }
-
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 1.8rem;
+        .product:hover .product-icon {
+            transform: scale(1.1);
+        }
+        .product-icon i {
+            font-size: 3em;
+            color: #fff;
+        }
+        .product h3 {
+            font-size: 1.4em;
+            color: #1A1A1A;
+            margin: 10px 0;
+        }
+        .product p {
+            font-size: 0.95em;
+            color: #4a4a4a;
+            margin: 5px 0;
+        }
+        .product .price {
+            font-size: 1.1em;
+            color: #355E3B;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .product .buy-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+            background: linear-gradient(135deg, #355E3B, #2a3d2f);
+            color: #fff;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .product .buy-btn:hover {
+            background: linear-gradient(135deg, #2a3d2f, #355E3B);
+            transform: scale(1.05);
+        }
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid #1A1A1A;
+            background: linear-gradient(135deg, #355E3B, #1A1A1A);
+            color: #e0e0e0;
+            border-radius: 0 0 10px 10px;
+        }
+        .footer .social-links a {
+            color: #e0e0e0;
+            margin: 0 10px;
+            font-size: 1.2em;
+            transition: color 0.3s ease;
+        }
+        .footer .social-links a:hover {
+            color: #fff;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 600px) {
+            .products {
+                grid-template-columns: 1fr;
             }
-
-            header p {
-                font-size: 0.9rem;
-            }
-
-            section h2 {
-                font-size: 1.5rem;
-            }
-
-            .filter-buttons {
+            .filters {
                 flex-direction: column;
-                align-items: center;
+                gap: 10px;
             }
-
-            .filter-buttons button {
-                width: 100%;
-                max-width: 200px;
+            .header h1 {
+                font-size: 2em;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>PERFUME VESSAL</h1>
-        <p>مرکز فروش عطرهای اورجینال</p>
-        <p>ما را در اینستاگرام دنبال کنید: <a href="https://instagram.com/Perfume_vessal">@Perfume_vessal</a></p>
-    </header>
-
-    <section>
-        <h2>کالکشن عطرهای لوکس</h2>
-        <p>مجموعه‌ای از بهترین و خوشبوترین عطرها با کیفیت تضمین شده</p>
-        <div class="filter-buttons">
-            <button>همه</button>
-            <button>مردانه</button>
-            <button>زنانه</button>
-            <button>یونیسکس</button>
-        </div>
-    </section>
-
-    <section class="perfume-grid">
-        <div class="perfume-card">
-            <h3>استیل جنیفر</h3>
-            <p>رایحه‌ای گلی و میوه‌ای با طراوت، مناسب برای بانوان پرانرژی.</p>
-            <p class="price">شیشه 30g: 500,000 تومان</p>
-            <p class="price">شیشه 50g: 760,000 تومان</p>
-            <p class="price">شیشه 100g: 1,260,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>سیلور مانتیان</h3>
-            <p>عطری خنک و چوبی، ایده‌آل برای آقایان مدرن و باوقار.</p>
-            <p class="price">شیشه 30g: 670,000 تومان</p>
-            <p class="price">شیشه 50g: 1,010,000 تومان</p>
-            <p class="price">شیشه 100g: 1,680,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>کوکوشنل</h3>
-            <p>رایحه‌ای کلاسیک و زنانه با نت‌های گلی و وانیلی.</p>
-            <p class="price">شیشه 30g: 670,000 تومان</p>
-            <p class="price">شیشه 50g: 1,010,000 تومان</p>
-            <p class="price">شیشه 100g: 1,680,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>لانکوم لاویه بل</h3>
-            <p>عطری شاداب و گلی، نماد زیبایی و زندگی پرنشاط.</p>
-            <p class="price">شیشه 30g: 580,000 تومان</p>
-            <p class="price">شیشه 50g: 860,000 تومان</p>
-            <p class="price">شیشه 100g: 1,440,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>لالیک مور</h3>
-            <p>رایحه‌ای گرم و شرقی، مناسب برای شب‌های سرد و خاص.</p>
-            <p class="price">شیشه 30g: 670,000 تومان</p>
-            <p class="price">شیشه 50g: 1,010,000 تومان</p>
-            <p class="price">شیشه 100g: 1,680,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>مای وی</h3>
-            <p>عطری مدرن با نت‌های میوه‌ای و گلی، بسیار دل‌انگیز.</p>
-            <p class="price">شیشه 30g: 670,000 تومان</p>
-            <p class="price">شیشه 50g: 1,010,000 تومان</p>
-            <p class="price">شیشه 100g: 1,680,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>مگاماره</h3>
-            <p>رایحه‌ای دریایی و خنک، یادآور نسیم اقیانوس.</p>
-            <p class="price">شیشه 30g: 840,000 تومان</p>
-            <p class="price">شیشه 50g: 1,260,000 تومان</p>
-            <p class="price">شیشه 100g: 2,100,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>فارنهایت</h3>
-            <p>عطری کلاسیک و مردانه با نت‌های چرمی و ادویه‌ای.</p>
-            <p class="price">شیشه 30g: 670,000 تومان</p>
-            <p class="price">شیشه 50g: 1,010,000 تومان</p>
-            <p class="price">شیشه 100g: 1,680,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>فرعون</h3>
-            <p>رایحه‌ای اسرارآمیز و شرقی، مناسب برای شخصیت‌های قوی.</p>
-            <p class="price">شیشه 30g: 840,000 تومان</p>
-            <p class="price">شیشه 50g: 1,260,000 تومان</p>
-            <p class="price">شیشه 100g: 2,100,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>فلور نارکوتیک</h3>
-            <p>عطری گلی و میوه‌ای، سرشار از لطافت و جذابیت.</p>
-            <p class="price">شیشه 30g: 580,000 تومان</p>
-            <p class="price">شیشه 50g: 860,000 تومان</p>
-            <p class="price">شیشه 100g: 1,440,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>گلوی مارلی</h3>
-            <p>رایحه‌ای لوکس با نت‌های عودی و گلی، بسیار شیک.</p>
-            <p class="price">شیشه 30g: 670,000 تومان</p>
-            <p class="price">شیشه 50g: 1,010,000 تومان</p>
-            <p class="price">شیشه 100g: 1,680,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>کیرکه تیزیانا</h3>
-            <p>عطری یونیسکس با رایحه میوه‌ای و شیرین، بسیار فریبنده.</p>
-            <p class="price">شیشه 30g: 670,000 تومان</p>
-            <p class="price">شیشه 50g: 1,010,000 تومان</p>
-            <p class="price">شیشه 100g: 1,680,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>گرینلی مارلی</h3>
-            <p>رایحه‌ای سبز و خنک، مناسب برای روزهای بهاری.</p>
-            <p class="price">شیشه 30g: 580,000 تومان</p>
-            <p class="price">شیشه 50g: 860,000 تومان</p>
-            <p class="price">شیشه 100g: 1,440,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>خمره قهوه</h3>
-            <p>عطری گرم با نت‌های قهوه و وانیل، بسیار دل‌انگیز.</p>
-            <p class="price">شیشه 30g: 580,000 تومان</p>
-            <p class="price">شیشه 50g: 860,000 تومان</p>
-            <p class="price">شیشه 100g: 1,440,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>اوصاف</h3>
-            <p>رایحه‌ای شرقی و عمیق، مناسب برای لحظات خاص.</p>
-            <p class="price">شیشه 30g: 580,000 تومان</p>
-            <p class="price">شیشه 50g: 860,000 تومان</p>
-            <p class="price">شیشه 100g: 1,440,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>آزارا کروم</h3>
-            <p>عطری خنک و مردانه با نت‌های مرکباتی و چوبی.</p>
-            <p class="price">شیشه 30g: 580,000 تومان</p>
-            <p class="price">شیشه 50g: 860,000 تومان</p>
-            <p class="price">شیشه 100g: 1,440,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>اسپلندور</h3>
-            <p>رایحه‌ای کلاسیک و گلی، مناسب برای بانوان شیک‌پوش.</p>
-            <p class="price">شیشه 30g: 500,000 تومان</p>
-            <p class="price">شیشه 50g: 760,000 تومان</p>
-            <p class="price">شیشه 100g: 1,260,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>اسنتو سوسپیرو</h3>
-            <p>عطری یونیسکس با رایحه‌ای غنی و شرقی.</p>
-            <p class="price">شیشه 30g: 1,080,000 تومان</p>
-            <p class="price">شیشه 50g: 1,620,000 تومان</p>
-            <p class="price">شیشه 100g: 2,700,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>افوریا</h3>
-            <p>رایحه‌ای زنانه و فریبنده با نت‌های گلی و میوه‌ای.</p>
-            <p class="price">شیشه 30g: 580,000 تومان</p>
-            <p class="price">شیشه 50g: 860,000 تومان</p>
-            <p class="price">شیشه 100g: 1,440,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>آمواج هانر</h3>
-            <p>عطری لوکس با رایحه‌های شرقی و گلی، بسیار باوقار.</p>
-            <p class="price">شیشه 30g: 670,000 تومان</p>
-            <p class="price">شیشه 50g: 1,010,000 تومان</p>
-            <p class="price">شیشه 100g: 1,680,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>دیورهوم اینتنس</h3>
-            <p>رایحه‌ای مردانه و گرم با نت‌های چوبی و ادویه‌ای.</p>
-            <p class="price">شیشه 30g: 840,000 تومان</p>
-            <p class="price">شیشه 50g: 1,260,000 تومان</p>
-            <p class="price">شیشه 100g: 2,100,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>ساواج</h3>
-            <p>عطری خنک و قدرتمند، مناسب برای آقایان جسور.</p>
-            <p class="price">شیشه 30g: 670,000 تومان</p>
-            <p class="price">شیشه 50g: 1,010,000 تومان</p>
-            <p class="price">شیشه 100g: 1,680,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>شیخ 77</h3>
-            <p>رایحه‌ای شرقی و لوکس، مناسب برای مهمانی‌های شبانه.</p>
-            <p class="price">شیشه 30g: 670,000 تومان</p>
-            <p class="price">شیشه 50g: 1,010,000 تومان</p>
-            <p class="price">شیشه 100g: 1,680,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>212 سکسی زنانه</h3>
-            <p>عطری فریبنده و زنانه با نت‌های وانیلی و گلی.</p>
-            <p class="price">شیشه 30g: 580,000 تومان</p>
-            <p class="price">شیشه 50g: 860,000 تومان</p>
-            <p class="price">شیشه 100g: 1,440,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>ورسوز</h3>
-            <p>رایحه‌ای خنک و مردانه با نت‌های مرکباتی و دریایی.</p>
-            <p class="price">شیشه 30g: 430,000 تومان</p>
-            <p class="price">شیشه 50g: 650,000 تومان</p>
-            <p class="price">شیشه 100g: 1,080,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>وری سکسی</h3>
-            <p>عطری زنانه و جذاب با رایحه‌های گلی و میوه‌ای.</p>
-            <p class="price">شیشه 30g: 620,000 تومان</p>
-            <p class="price">شیشه 50g: 940,000 تومان</p>
-            <p class="price">شیشه 100g: 1,560,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>212VIP</h3>
-            <p>رایحه‌ای لوکس و مدرن، مناسب برای مهمانی‌های خاص.</p>
-            <p class="price">شیشه 30g: 580,000 تومان</p>
-            <p class="price">شیشه 50g: 860,000 تومان</p>
-            <p class="price">شیشه 100g: 1,440,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>میس دیور شری</h3>
-            <p>عطری گلی و شیرین، نماد لطافت و زنانگی.</p>
-            <p class="price">شیشه 30g: 670,000 تومان</p>
-            <p class="price">شیشه 50g: 990,000 تومان</p>
-            <p class="price">شیشه 100g: 1,680,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>اروس آبی</h3>
-            <p>رایحه‌ای خنک و مردانه با نت‌های دریایی و مرکباتی.</p>
-            <p class="price">شیشه 30g: 580,000 تومان</p>
-            <p class="price">شیشه 50g: 860,000 تومان</p>
-            <p class="price">شیشه 100g: 1,440,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>برایت کریستال</h3>
-            <p>عطری زنانه و درخشان با رایحه گلی و مشکی.</p>
-            <p class="price">شیشه 30g: 580,000 تومان</p>
-            <p class="price">شیشه 50g: 860,000 تومان</p>
-            <p class="price">شیشه 100g: 1,440,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>بلک اپیوم</h3>
-            <p>رایحه‌ای گرم و اعتیادآور با نت‌های قهوه و وانیل.</p>
-            <p class="price">شیشه 30g: 720,000 تومان</p>
-            <p class="price">شیشه 50g: 1,080,000 تومان</p>
-            <p class="price">شیشه 100g: 1,800,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>مولکول</h3>
-            <p>عطری یونیسکس و مینیمال با رایحه‌ای چوبی و مدرن.</p>
-            <p class="price">شیشه 30g: 670,000 تومان</p>
-            <p class="price">شیشه 50g: 990,000 تومان</p>
-            <p class="price">شیشه 100g: 1,680,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>مولکول H</h3>
-            <p>رایحه‌ای چوبی و تازه، مناسب برای سلیقه‌های خاص.</p>
-            <p class="price">شیشه 30g: 1,320,000 تومان</p>
-            <p class="price">شیشه 50g: 1,980,000 تومان</p>
-            <p class="price">شیشه 100g: 3,300,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>بولگاری آکوا</h3>
-            <p>عطری خنک و دریایی، ایده‌آل برای روزهای گرم.</p>
-            <p class="price">شیشه 30g: 580,000 تومان</p>
-            <p class="price">شیشه 50g: 860,000 تومان</p>
-            <p class="price">شیشه 100g: 1,440,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>الکساندریا</h3>
-            <p>رایحه‌ای شرقی و لوکس با نت‌های عود و وانیل.</p>
-            <p class="price">شیشه 30g: 720,000 تومان</p>
-            <p class="price">شیشه 50g: 1,080,000 تومان</p>
-            <p class="price">شیشه 100g: 1,800,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>کالیفرنیا دریم</h3>
-            <p>عطری میوه‌ای و شاداب، یادآور سواحل کالیفرنیا.</p>
-            <p class="price">شیشه 30g: 1,920,000 تومان</p>
-            <p class="price">شیشه 50g: 2,880,000 تومان</p>
-            <p class="price">شیشه 100g: 4,800,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>لجند مون بلان</h3>
-            <p>رایحه‌ای مردانه و کلاسیک با نت‌های چوبی و میوه‌ای.</p>
-            <p class="price">شیشه 30g: 580,000 تومان</p>
-            <p class="price">شیشه 50g: 860,000 تومان</p>
-            <p class="price">شیشه 100g: 1,440,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>مید نایت رز</h3>
-            <p>عطری رمانتیک با رایحه گل رز و مشک.</p>
-            <p class="price">شیشه 30g: 500,000 تومان</p>
-            <p class="price">شیشه 50g: 760,000 تومان</p>
-            <p class="price">شیشه 100g: 1,260,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>کازاموراتی لیرا</h3>
-            <p>رایحه‌ای گرم و شیرین با نت‌های وانیل و کارامل.</p>
-            <p class="price">شیشه 30g: 670,000 تومان</p>
-            <p class="price">شیشه 50g: 990,000 تومان</p>
-            <p class="price">شیشه 100g: 1,680,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>اکلت</h3>
-            <p>عطری گلی و زنانه، مناسب برای روزمرگی شیک.</p>
-            <p class="price">شیشه 30g: 580,000 تومان</p>
-            <p class="price">شیشه 50g: 860,000 تومان</p>
-            <p class="price">شیشه 100g: 1,440,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>کارتیر پاشا</h3>
-            <p>رایحه‌ای مردانه و پیچیده با نت‌های چوبی و ادویه‌ای.</p>
-            <p class="price">شیشه 30g: 580,000 تومان</p>
-            <p class="price">شیشه 50g: 860,000 تومان</p>
-            <p class="price">شیشه 100g: 1,440,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>دیزایر بلو</h3>
-            <p>عطری خنک و مردانه با نت‌های مرکباتی و اقیانوسی.</p>
-            <p class="price">شیشه 30g: 670,000 تومان</p>
-            <p class="price">شیشه 50g: 990,000 تومان</p>
-            <p class="price">شیشه 100g: 1,680,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>گری ویتور</h3>
-            <p>رایحه‌ای گرم و شرقی، مناسب برای شب‌های خاص.</p>
-            <p class="price">شیشه 30g: 840,000 تومان</p>
-            <p class="price">شیشه 50g: 1,260,000 تومان</p>
-            <p class="price">شیشه 100g: 2,100,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>توسکان لدر</h3>
-            <p>عطری لوکس با رایحه چرم و رز، بسیار شیک.</p>
-            <p class="price">شیشه 30g: 670,000 تومان</p>
-            <p class="price">شیشه 50g: 990,000 تومان</p>
-            <p class="price">شیشه 100g: 1,680,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>پسیفیک چیل</h3>
-            <p>رایحه‌ای خنک و میوه‌ای، یادآور آرامش طبیعت.</p>
-            <p class="price">شیشه 30g: 1,320,000 تومان</p>
-            <p class="price">شیشه 50g: 1,980,000 تومان</p>
-            <p class="price">شیشه 100g: 3,300,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>ال ایمنسیت</h3>
-            <p>عطری یونیسکس با نت‌های گلی و مشکی، بسیار جذاب.</p>
-            <p class="price">شیشه 30g: 1,320,000 تومان</p>
-            <p class="price">شیشه 50g: 1,980,000 تومان</p>
-            <p class="price">شیشه 100g: 3,300,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>تایگار</h3>
-            <p>رایحه‌ای مردانه و خنک با نت‌های مرکباتی و چوبی.</p>
-            <p class="price">شیشه 30g: 720,000 تومان</p>
-            <p class="price">شیشه 50g: 1,080,000 تومان</p>
-            <p class="price">شیشه 100g: 1,800,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>گران بالو</h3>
-            <p>عطری لوکس با نت‌های گلی و عودی، بسیار فاخر.</p>
-            <p class="price">شیشه 30g: 840,000 تومان</p>
-            <p class="price">شیشه 50g: 1,260,000 تومان</p>
-            <p class="price">شیشه 100g: 2,100,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>آنجلز شیر</h3>
-            <p>رایحه‌ای شیرین و گلی، مناسب برای لحظات رمانتیک.</p>
-            <p class="price">شیشه 30g: 580,000 تومان</p>
-            <p class="price">شیشه 50g: 860,000 تومان</p>
-            <p class="price">شیشه 100g: 1,440,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>فابیولس</h3>
-            <p>عطری یونیسکس و مدرن با نت‌های میوه‌ای و چوبی.</p>
-            <p class="price">شیشه 30g: 1,080,000 تومان</p>
-            <p class="price">شیشه 50g: 1,620,000 تومان</p>
-            <p class="price">شیشه 100g: 2,700,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>تق هرمس</h3>
-            <p>رایحه‌ای مردانه و تازه با نت‌های مرکباتی و چوبی.</p>
-            <p class="price">شیشه 30g: 580,000 تومان</p>
-            <p class="price">شیشه 50g: 860,000 تومان</p>
-            <p class="price">شیشه 100g: 1,440,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>جادور</h3>
-            <p>عطری زنانه و گلی، نماد زیبایی و ظرافت.</p>
-            <p class="price">شیشه 30g: 580,000 تومان</p>
-            <p class="price">شیشه 50g: 860,000 تومان</p>
-            <p class="price">شیشه 100g: 1,440,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>دانهیل قهوه ای</h3>
-            <p>رایحه‌ای کلاسیک و مردانه با نت‌های چوبی و ادویه‌ای.</p>
-            <p class="price">شیشه 30g: 500,000 تومان</p>
-            <p class="price">شیشه 50g: 760,000 تومان</p>
-            <p class="price">شیشه 100g: 1,260,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>آیس واتر</h3>
-            <p>عطری خنک و سبک، مناسب برای روزهای گرم تابستان.</p>
-            <p class="price">شیشه 30g: 580,000 تومان</p>
-            <p class="price">شیشه 50g: 860,000 تومان</p>
-            <p class="price">شیشه 100g: 1,440,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>اینوکتوس</h3>
-            <p>رایحه‌ای مردانه و پرانرژی با نت‌های دریایی و گریپ‌فروت.</p>
-            <p class="price">شیشه 30g: 670,000 تومان</p>
-            <p class="price">شیشه 50g: 990,000 تومان</p>
-            <p class="price">شیشه 100g: 1,680,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>بوگاتی</h3>
-            <p>عطری لوکس و مردانه با رایحه‌های چوبی و چرمی.</p>
-            <p class="price">شیشه 30g: 500,000 تومان</p>
-            <p class="price">شیشه 50g: 760,000 تومان</p>
-            <p class="price">شیشه 100g: 1,260,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>آمبر لدر</h3>
-            <p>رایحه‌ای گرم و چرمی، مناسب برای فصول سرد.</p>
-            <p class="price">شیشه 30g: 580,000 تومان</p>
-            <p class="price">شیشه 50g: 860,000 تومان</p>
-            <p class="price">شیشه 100g: 1,440,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>بلک ارکید</h3>
-            <p>عطری مرموز و لوکس با نت‌های گلی و شکلاتی.</p>
-            <p class="price">شیشه 30g: 580,000 تومان</p>
-            <p class="price">شیشه 50g: 860,000 تومان</p>
-            <p class="price">شیشه 100g: 1,440,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>مفیستو</h3>
-            <p>رایحه‌ای یونیسکس و پیچیده با نت‌های مرکباتی و گلی.</p>
-            <p class="price">شیشه 30g: 670,000 تومان</p>
-            <p class="price">شیشه 50g: 990,000 تومان</p>
-            <p class="price">شیشه 100g: 1,680,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>اونتوس</h3>
-            <p>عطری افسانه‌ای و مردانه با نت‌های میوه‌ای و چوبی.</p>
-            <p class="price">شیشه 30g: 960,000 تومان</p>
-            <p class="price">شیشه 50g: 1,440,000 تومان</p>
-            <p class="price">شیشه 100g: 2,400,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>چمپیون</h3>
-            <p>رایحه‌ای پرانرژی و مردانه با نت‌های تازه و ادویه‌ای.</p>
-            <p class="price">شیشه 30g: 500,000 تومان</p>
-            <p class="price">شیشه 50g: 760,000 تومان</p>
-            <p class="price">شیشه 100g: 1,260,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>سینگارینا</h3>
-            <p>عطری زنانه و شیرین با نت‌های گلی و میوه‌ای.</p>
-            <p class="price">شیشه 30g: 500,000 تومان</p>
-            <p class="price">شیشه 50g: 760,000 تومان</p>
-            <p class="price">شیشه 100g: 1,260,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>شنل چنس</h3>
-            <p>رایحه‌ای گلی و تازه، مناسب برای بانوان مدرن.</p>
-            <p class="price">شیشه 30g: 670,000 تومان</p>
-            <p class="price">شیشه 50g: 990,000 تومان</p>
-            <p class="price">شیشه 100g: 1,680,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>ایف سن لورن وای</h3>
-            <p>عطری خنک و مردانه با نت‌های سیب و زنجبیل.</p>
-            <p class="price">شیشه 30g: 670,000 تومان</p>
-            <p class="price">شیشه 50g: 990,000 تومان</p>
-            <p class="price">شیشه 100g: 1,680,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>لیبر</h3>
-            <p>رایحه‌ای زنانه و جسور با نت‌های وانیل و لاوندر.</p>
-            <p class="price">شیشه 30g: 720,000 تومان</p>
-            <p class="price">شیشه 50g: 1,080,000 تومان</p>
-            <p class="price">شیشه 100g: 1,800,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>لالیک</h3>
-            <p>عطری کلاسیک و مردانه با نت‌های چوبی و گلی.</p>
-            <p class="price">شیشه 30g: 500,000 تومان</p>
-            <p class="price">شیشه 50g: 760,000 تومان</p>
-            <p class="price">شیشه 100g: 1,260,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>یارا صورتی</h3>
-            <p>رایحه‌ای شیرین و گلی، مناسب برای بانوان جوان.</p>
-            <p class="price">شیشه 30g: 580,000 تومان</p>
-            <p class="price">شیشه 50g: 860,000 تومان</p>
-            <p class="price">شیشه 100g: 1,440,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>ورساچه پورهم</h3>
-            <p>عطری خنک و مردانه با نت‌های مرکباتی و فوجر.</p>
-            <p class="price">شیشه 30g: 580,000 تومان</p>
-            <p class="price">شیشه 50g: 860,000 تومان</p>
-            <p class="price">شیشه 100g: 1,440,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>نویر تیس</h3>
-            <p>رایحه‌ای گرم و شرقی با نت‌های عود و ادویه.</p>
-            <p class="price">شیشه 30g: 670,000 تومان</p>
-            <p class="price">شیشه 50g: 990,000 تومان</p>
-            <p class="price">شیشه 100g: 1,680,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>نارسیس پودری</h3>
-            <p>عطری زنانه و پودری با رایحه گلی و مشکی.</p>
-            <p class="price">شیشه 30g: 960,000 تومان</p>
-            <p class="price">شیشه 50g: 1,440,000 تومان</p>
-            <p class="price">شیشه 100g: 2,400,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>بمب شل</h3>
-            <p>رایحه‌ای شیرین و میوه‌ای، مناسب برای بانوان پرانرژی.</p>
-            <p class="price">شیشه 30g: 580,000 تومان</p>
-            <p class="price">شیشه 50g: 860,000 تومان</p>
-            <p class="price">شیشه 100g: 1,440,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>باکارات رژ</h3>
-            <p>عطری لوکس با نت‌های گلی و چوبی، بسیار فاخر.</p>
-            <p class="price">شیشه 30g: 670,000 تومان</p>
-            <p class="price">شیشه 50g: 990,000 تومان</p>
-            <p class="price">شیشه 100g: 1,680,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>بلو شنل</h3>
-            <p>رایحه‌ای مردانه و خنک با نت‌های چوبی و مرکباتی.</p>
-            <p class="price">شیشه 30g: 670,000 تومان</p>
-            <p class="price">شیشه 50g: 990,000 تومان</p>
-            <p class="price">شیشه 100g: 1,680,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>ویاژ</h3>
-            <p>عطری خنک و یونیسکس با نت‌های گلی و ادویه‌ای.</p>
-            <p class="price">شیشه 30g: --- تومان</p>
-            <p class="price">شیشه 50g: --- تومان</p>
-            <p class="price">شیشه 100g: --- تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>آریانا گرند</h3>
-            <p>رایحه‌ای شیرین و گلی، مناسب برای بانوان جوان.</p>
-            <p class="price">شیشه 30g: 670,000 تومان</p>
-            <p class="price">شیشه 50g: 990,000 تومان</p>
-            <p class="price">شیشه 100g: 1,680,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>فلورا</h3>
-            <p>عطری گلی و زنانه، یادآور باغ‌های بهاری.</p>
-            <p class="price">شیشه 30g: 500,000 تومان</p>
-            <p class="price">شیشه 50g: 760,000 تومان</p>
-            <p class="price">شیشه 100g: 1,260,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>بوگارت</h3>
-            <p>رایحه‌ای کلاسیک و مردانه با نت‌های چوبی و فوجر.</p>
-            <p class="price">شیشه 30g: 500,000 تومان</p>
-            <p class="price">شیشه 50g: 760,000 تومان</p>
-            <p class="price">شیشه 100g: 1,260,000 تومان</p>
-        </div>
-
-        <div class="perfume-card">
-            <h3>CH</h3>
-            <p>عطری زنانه و لوکس با نت‌های گلی و میوه‌ای.</p>
-            <p class="price">شیشه 30g: 500,000 تومان</p>
-            <p class="price">شیشه 50g: 760,000 تومان</p>
-            <p class="price">شیشه 100g: 1,260,000 تومان</p>
-        </div>
-    </section>
-
-    <footer>
-        <p>© 2025 PERFUME VESSAL. تمامی حقوق محفوظ است.</p>
-    </footer>
+    <div class="container">
+        <div class="header">
+            <h1>PERFUME VESSAL</h1>
+            <p>مرکز فروش عطرهای اورجینال</p>
+            <p>ما را در اینستاگرام دنبال کنید: <a href="https://instagram.com/Perfume_vessal">@Perfume_vessal</a></p>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="جستجوی نام عطر...">
+            <i class="fas fa-search"></i>
+        </div>
+
+        <div class="filters">
+            <button onclick="filterByCategory('all')" class="active"><i class="fas fa-th"></i> همه</button>
+            <button onclick="filterByCategory('men')"><i class="fas fa-male"></i> مردانه</button>
+            <button onclick="filterByCategory('women')"><i class="fas fa-female"></i> زنانه</button>
+            <button onclick="filterByCategory('unisex')"><i class="fas fa-venus-mars"></i> یونیسکس</button>
+        </div>
+
+        <h2 style="text-align: center; color: #1A1A1A;">کالکشن عطرهای لوکس</h2>
+        <p style="text-align: center; color: #4a4a4a;">مجموعه‌ای از بهترین و خوشبوترین عطرها با کیفیت تضمین شده</p>
+
+        <div class="products" id="productList">
+            <div class="product" data-category="women">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>استیل جنیفر</h3>
+                <p>رایحه‌ای گلی و میوه‌ای با طراوت، مناسب برای بانوان پرانرژی.</p>
+                <div class="price">شیشه 30g: تومان 500,000</div>
+                <div class="price">شیشه 50g: تومان 760,000</div>
+                <div class="price">شیشه 100g: تومان 1,260,000</div>
+            </div>
+            <div class="product" data-category="men">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>سیلور مانتیان</h3>
+                <p>عطری خنک و چوبی، ایده‌آل برای آقایان مدرن و باوقار.</p>
+                <div class="price">شیشه 30g: تومان 670,000</div>
+                <div class="price">شیشه 50g: تومان 1,010,000</div>
+                <div class="price">شیشه 100g: تومان 1,680,000</div>
+            </div>
+            <div class="product" data-category="women">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>کوکوشنل</h3>
+                <p>رایحه‌ای کلاسیک و زنانه با نت‌های گلی و وانیلی.</p>
+                <div class="price">شیشه 30g: تومان 670,000</div>
+                <div class="price">شیشه 50g: تومان 1,010,000</div>
+                <div class="price">شیشه 100g: تومان 1,680,000</div>
+            </div>
+            <div class="product" data-category="women">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>لانکوم لاویه بل</h3>
+                <p>عطری شاداب و گلی، نماد زیبایی و زندگی پرنشاط.</p>
+                <div class="price">شیشه 30g: تومان 580,000</div>
+                <div class="price">شیشه 50g: تومان 860,000</div>
+                <div class="price">شیشه 100g: تومان 1,440,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>لالیک مور</h3>
+                <p>رایحه‌ای گرم و شرقی، مناسب برای شب‌های سرد و خاص.</p>
+                <div class="price">شیشه 30g: تومان 670,000</div>
+                <div class="price">شیشه 50g: تومان 1,010,000</div>
+                <div class="price">شیشه 100g: تومان 1,680,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>مای وی</h3>
+                <p>عطری مدرن با نت‌های میوه‌ای و گلی، بسیار دل‌انگیز.</p>
+                <div class="price">شیشه 30g: تومان 670,000</div>
+                <div class="price">شیشه 50g: تومان 1,010,000</div>
+                <div class="price">شیشه 100g: تومان 1,680,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>مگاماره</h3>
+                <p>رایحه‌ای دریایی و خنک، یادآور نسیم اقیانوس.</p>
+                <div class="price">شیشه 30g: تومان 840,000</div>
+                <div class="price">شیشه 50g: تومان 1,260,000</div>
+                <div class="price">شیشه 100g: تومان 2,100,000</div>
+            </div>
+            <div class="product" data-category="men">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>فارنهایت</h3>
+                <p>عطری کلاسیک و مردانه با نت‌های چرمی و ادویه‌ای.</p>
+                <div class="price">شیشه 30g: تومان 670,000</div>
+                <div class="price">شیشه 50g: تومان 1,010,000</div>
+                <div class="price">شیشه 100g: تومان 1,680,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>فرعون</h3>
+                <p>رایحه‌ای اسرارآمیز و شرقی، مناسب برای شخصیت‌های قوی.</p>
+                <div class="price">شیشه 30g: تومان 840,000</div>
+                <div class="price">شیشه 50g: تومان 1,260,000</div>
+                <div class="price">شیشه 100g: تومان 2,100,000</div>
+            </div>
+            <div class="product" data-category="women">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>فلور نارکوتیک</h3>
+                <p>عطری گلی و میوه‌ای، سرشار از لطافت و جذابیت.</p>
+                <div class="price">شیشه 30g: تومان 580,000</div>
+                <div class="price">شیشه 50g: تومان 860,000</div>
+                <div class="price">شیشه 100g: تومان 1,440,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>گلوی مارلی</h3>
+                <p>رایحه‌ای لوکس با نت‌های عودی و گلی، بسیار شیک.</p>
+                <div class="price">شیشه 30g: تومان 670,000</div>
+                <div class="price">شیشه 50g: تومان 1,010,000</div>
+                <div class="price">شیشه 100g: تومان 1,680,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>کیرکه تیزیانا</h3>
+                <p>عطری یونیسکس با رایحه میوه‌ای و شیرین، بسیار فریبنده.</p>
+                <div class="price">شیشه 30g: تومان 670,000</div>
+                <div class="price">شیشه 50g: تومان 1,010,000</div>
+                <div class="price">شیشه 100g: تومان 1,680,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>گرینلی مارلی</h3>
+                <p>رایحه‌ای سبز و خنک، مناسب برای روزهای بهاری.</p>
+                <div class="price">شیشه 30g: تومان 580,000</div>
+                <div class="price">شیشه 50g: تومان 860,000</div>
+                <div class="price">شیشه 100g: تومان 1,440,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>خمره قهوه</h3>
+                <p>عطری گرم با نت‌های قهوه و وانیل، بسیار دل‌انگیز.</p>
+                <div class="price">شیشه 30g: تومان 580,000</div>
+                <div class="price">شیشه 50g: تومان 860,000</div>
+                <div class="price">شیشه 100g: تومان 1,440,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>اوصاف</h3>
+                <p>رایحه‌ای شرقی و عمیق، مناسب برای لحظات خاص.</p>
+                <div class="price">شیشه 30g: تومان 580,000</div>
+                <div class="price">شیشه 50g: تومان 860,000</div>
+                <div class="price">شیشه 100g: تومان 1,440,000</div>
+            </div>
+            <div class="product" data-category="men">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>آزارا کروم</h3>
+                <p>عطری خنک و مردانه با نت‌های مرکباتی و چوبی.</p>
+                <div class="price">شیشه 30g: تومان 580,000</div>
+                <div class="price">شیشه 50g: تومان 860,000</div>
+                <div class="price">شیشه 100g: تومان 1,440,000</div>
+            </div>
+            <div class="product" data-category="women">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>اسپلندور</h3>
+                <p>رایحه‌ای کلاسیک و گلی، مناسب برای بانوان شیک‌پوش.</p>
+                <div class="price">شیشه 30g: تومان 500,000</div>
+                <div class="price">شیشه 50g: تومان 760,000</div>
+                <div class="price">شیشه 100g: تومان 1,260,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>اسنتو سوسپیرو</h3>
+                <p>عطری یونیسکس با رایحه‌ای غنی و شرقی.</p>
+                <div class="price">شیشه 30g: تومان 1,080,000</div>
+                <div class="price">شیشه 50g: تومان 1,620,000</div>
+                <div class="price">شیشه 100g: تومان 2,700,000</div>
+            </div>
+            <div class="product" data-category="women">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>افوریا</h3>
+                <p>رایحه‌ای زنانه و فریبنده با نت‌های گلی و میوه‌ای.</p>
+                <div class="price">شیشه 30g: تومان 580,000</div>
+                <div class="price">شیشه 50g: تومان 860,000</div>
+                <div class="price">شیشه 100g: تومان 1,440,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>آمواج هانر</h3>
+                <p>عطری لوکس با رایحه‌های شرقی و گلی، بسیار باوقار.</p>
+                <div class="price">شیشه 30g: تومان 670,000</div>
+                <div class="price">شیشه 50g: تومان 1,010,000</div>
+                <div class="price">شیشه 100g: تومان 1,680,000</div>
+            </div>
+            <div class="product" data-category="men">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>دیورهوم اینتنس</h3>
+                <p>رایحه‌ای مردانه و گرم با نت‌های چوبی و ادویه‌ای.</p>
+                <div class="price">شیشه 30g: تومان 840,000</div>
+                <div class="price">شیشه 50g: تومان 1,260,000</div>
+                <div class="price">شیشه 100g: تومان 2,100,000</div>
+            </div>
+            <div class="product" data-category="men">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>ساواج</h3>
+                <p>عطری خنک و قدرتمند، مناسب برای آقایان جسور.</p>
+                <div class="price">شیشه 30g: تومان 670,000</div>
+                <div class="price">شیشه 50g: تومان 1,010,000</div>
+                <div class="price">شیشه 100g: تومان 1,680,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>شیخ 77</h3>
+                <p>رایحه‌ای شرقی و لوکس، مناسب برای مهمانی‌های شبانه.</p>
+                <div class="price">شیشه 30g: تومان 670,000</div>
+                <div class="price">شیشه 50g: تومان 1,010,000</div>
+                <div class="price">شیشه 100g: تومان 1,680,000</div>
+            </div>
+            <div class="product" data-category="women">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>212 سکسی زنانه</h3>
+                <p>عطری فریبنده و زنانه با نت‌های وانیلی و گلی.</p>
+                <div class="price">شیشه 30g: تومان 580,000</div>
+                <div class="price">شیشه 50g: تومان 860,000</div>
+                <div class="price">شیشه 100g: تومان 1,440,000</div>
+            </div>
+            <div class="product" data-category="men">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>ورسوز</h3>
+                <p>رایحه‌ای خنک و مردانه با نت‌های مرکباتی و دریایی.</p>
+                <div class="price">شیشه 30g: تومان 430,000</div>
+                <div class="price">شیشه 50g: تومان 650,000</div>
+                <div class="price">شیشه 100g: تومان 1,080,000</div>
+            </div>
+            <div class="product" data-category="women">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>وری سکسی</h3>
+                <p>عطری زنانه و جذاب با رایحه‌های گلی و میوه‌ای.</p>
+                <div class="price">شیشه 30g: تومان 620,000</div>
+                <div class="price">شیشه 50g: تومان 940,000</div>
+                <div class="price">شیشه 100g: تومان 1,560,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>212VIP</h3>
+                <p>رایحه‌ای لوکس و مدرن، مناسب برای مهمانی‌های خاص.</p>
+                <div class="price">شیشه 30g: تومان 580,000</div>
+                <div class="price">شیشه 50g: تومان 860,000</div>
+                <div class="price">شیشه 100g: تومان 1,440,000</div>
+            </div>
+            <div class="product" data-category="women">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>میس دیور شری</h3>
+                <p>عطری گلی و شیرین، نماد لطافت و زنانگی.</p>
+                <div class="price">شیشه 30g: تومان 670,000</div>
+                <div class="price">شیشه 50g: تومان 990,000</div>
+                <div class="price">شیشه 100g: تومان 1,680,000</div>
+            </div>
+            <div class="product" data-category="men">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>اروس آبی</h3>
+                <p>رایحه‌ای خنک و مردانه با نت‌های دریایی و مرکباتی.</p>
+                <div class="price">شیشه 30g: تومان 580,000</div>
+                <div class="price">شیشه 50g: تومان 860,000</div>
+                <div class="price">شیشه 100g: تومان 1,440,000</div>
+            </div>
+            <div class="product" data-category="women">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>برایت کریستال</h3>
+                <p>عطری زنانه و درخشان با رایحه گلی و مشکی.</p>
+                <div class="price">شیشه 30g: تومان 580,000</div>
+                <div class="price">شیشه 50g: تومان 860,000</div>
+                <div class="price">شیشه 100g: تومان 1,440,000</div>
+            </div>
+            <div class="product" data-category="women">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>بلک اپیوم</h3>
+                <p>رایحه‌ای گرم و اعتیادآور با نت‌های قهوه و وانیل.</p>
+                <div class="price">شیشه 30g: تومان 720,000</div>
+                <div class="price">شیشه 50g: تومان 1,080,000</div>
+                <div class="price">شیشه 100g: تومان 1,800,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>مولکول</h3>
+                <p>عطری یونیسکس و مینیمال با رایحه‌ای چوبی و مدرن.</p>
+                <div class="price">شیشه 30g: تومان 670,000</div>
+                <div class="price">شیشه 50g: تومان 990,000</div>
+                <div class="price">شیشه 100g: تومان 1,680,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>مولکول اچ</h3>
+                <p>رایحه‌ای چوبی و تازه، مناسب برای سلیقه‌های خاص.</p>
+                <div class="price">شیشه 30g: تومان 1,320,000</div>
+                <div class="price">شیشه 50g: تومان 1,980,000</div>
+                <div class="price">شیشه 100g: تومان 3,300,000</div>
+            </div>
+            <div class="product" data-category="men">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>بولگاری آکوا</h3>
+                <p>عطری خنک و دریایی، ایده‌آل برای روزهای گرم.</p>
+                <div class="price">شیشه 30g: تومان 580,000</div>
+                <div class="price">شیشه 50g: تومان 860,000</div>
+                <div class="price">شیشه 100g: تومان 1,440,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>الکساندریا</h3>
+                <p>رایحه‌ای شرقی و لوکس با نت‌های عود و وانیل.</p>
+                <div class="price">شیشه 30g: تومان 720,000</div>
+                <div class="price">شیشه 50g: تومان 1,080,000</div>
+                <div class="price">شیشه 100g: تومان 1,800,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>کالیفرنیا دریم</h3>
+                <p>عطری میوه‌ای و شاداب، یادآور سواحل کالیفرنیا.</p>
+                <div class="price">شیشه 30g: تومان 1,920,000</div>
+                <div class="price">شیشه 50g: تومان 2,880,000</div>
+                <div class="price">شیشه 100g: تومان 4,800,000</div>
+            </div>
+            <div class="product" data-category="men">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>لجند مون بلان</h3>
+                <p>رایحه‌ای مردانه و کلاسیک با نت‌های چوبی و میوه‌ای.</p>
+                <div class="price">شیشه 30g: تومان 580,000</div>
+                <div class="price">شیشه 50g: تومان 860,000</div>
+                <div class="price">شیشه 100g: تومان 1,440,000</div>
+            </div>
+            <div class="product" data-category="women">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>مید نایت رز</h3>
+                <p>عطری رمانتیک با رایحه گل رز و مشک.</p>
+                <div class="price">شیشه 30g: تومان 500,000</div>
+                <div class="price">شیشه 50g: تومان 760,000</div>
+                <div class="price">شیشه 100g: تومان 1,260,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>کازاموراتی لیرا</h3>
+                <p>رایحه‌ای گرم و شیرین با نت‌های وانیل و کارامل.</p>
+                <div class="price">شیشه 30g: تومان 670,000</div>
+                <div class="price">شیشه 50g: تومان 990,000</div>
+                <div class="price">شیشه 100g: تومان 1,680,000</div>
+            </div>
+            <div class="product" data-category="women">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>اکلت</h3>
+                <p>عطری گلی و زنانه، مناسب برای روزمرگی شیک.</p>
+                <div class="price">شیشه 30g: تومان 580,000</div>
+                <div class="price">شیشه 50g: تومان 860,000</div>
+                <div class="price">شیشه 100g: تومان 1,440,000</div>
+            </div>
+            <div class="product" data-category="men">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>کارتیر پاشا</h3>
+                <p>رایحه‌ای مردانه و پیچیده با نت‌های چوبی و ادویه‌ای.</p>
+                <div class="price">شیشه 30g: تومان 580,000</div>
+                <div class="price">شیشه 50g: تومان 860,000</div>
+                <div class="price">شیشه 100g: تومان 1,440,000</div>
+            </div>
+            <div class="product" data-category="men">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>دیزایر بلو</h3>
+                <p>عطری خنک و مردانه با نت‌های مرکباتی و اقیانوسی.</p>
+                <div class="price">شیشه 30g: تومان 670,000</div>
+                <div class="price">شیشه 50g: تومان 990,000</div>
+                <div class="price">شیشه 100g: تومان 1,680,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>گری ویتور</h3>
+                <p>رایحه‌ای گرم و شرقی، مناسب برای شب‌های خاص.</p>
+                <div class="price">شیشه 30g: تومان 840,000</div>
+                <div class="price">شیشه 50g: تومان 1,260,000</div>
+                <div class="price">شیشه 100g: تومان 2,100,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>توسکان لدر</h3>
+                <p>عطری لوکس با رایحه چرم و رز، بسیار شیک.</p>
+                <div class="price">شیشه 30g: تومان 670,000</div>
+                <div class="price">شیشه 50g: تومان 990,000</div>
+                <div class="price">شیشه 100g: تومان 1,680,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>پسیفیک چیل</h3>
+                <p>رایحه‌ای خنک و میوه‌ای، یادآور آرامش طبیعت.</p>
+                <div class="price">شیشه 30g: تومان 1,320,000</div>
+                <div class="price">شیشه 50g: تومان 1,980,000</div>
+                <div class="price">شیشه 100g: تومان 3,300,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>ال ایمنسیت</h3>
+                <p>عطری یونیسکس با نت‌های گلی و مشکی، بسیار جذاب.</p>
+                <div class="price">شیشه 30g: تومان 1,320,000</div>
+                <div class="price">شیشه 50g: تومان 1,980,000</div>
+                <div class="price">شیشه 100g: تومان 3,300,000</div>
+            </div>
+            <div class="product" data-category="men">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>تایگر</h3>
+                <p>رایحه‌ای مردانه و خنک با نت‌های مرکباتی و چوبی.</p>
+                <div class="price">شیشه 30g: تومان 720,000</div>
+                <div class="price">شیشه 50g: تومان 1,080,000</div>
+                <div class="price">شیشه 100g: تومان 1,800,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>گران بالو</h3>
+                <p>عطری لوکس با نت‌های گلی و عودی، بسیار فاخر.</p>
+                <div class="price">شیشه 30g: تومان 840,000</div>
+                <div class="price">شیشه 50g: تومان 1,260,000</div>
+                <div class="price">شیشه 100g: تومان 2,100,000</div>
+            </div>
+            <div class="product" data-category="women">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>آنجلز شیر</h3>
+                <p>رایحه‌ای شیرین و گلی، مناسب برای لحظات رمانتیک.</p>
+                <div class="price">شیشه 30g: تومان 580,000</div>
+                <div class="price">شیشه 50g: تومان 860,000</div>
+                <div class="price">شیشه 100g: تومان 1,440,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>فابیولس</h3>
+                <p>عطری یونیسکس و مدرن با نت‌های میوه‌ای و چوبی.</p>
+                <div class="price">شیشه 30g: تومان 1,080,000</div>
+                <div class="price">شیشه 50g: تومان 1,620,000</div>
+                <div class="price">شیشه 100g: تومان 2,700,000</div>
+            </div>
+            <div class="product" data-category="men">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>تق هرمس</h3>
+                <p>رایحه‌ای مردانه و تازه با نت‌های مرکباتی و چوبی.</p>
+                <div class="price">شیشه 30g: تومان 580,000</div>
+                <div class="price">شیشه 50g: تومان 860,000</div>
+                <div class="price">شیشه 100g: تومان 1,440,000</div>
+            </div>
+            <div class="product" data-category="women">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>جادور</h3>
+                <p>عطری زنانه و گلی، نماد زیبایی و ظرافت.</p>
+                <div class="price">شیشه 30g: تومان 580,000</div>
+                <div class="price">شیشه 50g: تومان 860,000</div>
+                <div class="price">شیشه 100g: تومان 1,440,000</div>
+            </div>
+            <div class="product" data-category="men">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>دانهیل قهوه‌ای</h3>
+                <p>رایحه‌ای کلاسیک و مردانه با نت‌های چوبی و ادویه‌ای.</p>
+                <div class="price">شیشه 30g: تومان 500,000</div>
+                <div class="price">شیشه 50g: تومان 760,000</div>
+                <div class="price">شیشه 100g: تومان 1,260,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>آیس واتر</h3>
+                <p>عطری خنک و سبک، مناسب برای روزهای گرم تابستان.</p>
+                <div class="price">شیشه 30g: تومان 580,000</div>
+                <div class="price">شیشه 50g: تومان 860,000</div>
+                <div class="price">شیشه 100g: تومان 1,440,000</div>
+            </div>
+            <div class="product" data-category="men">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>اینوکتوس</h3>
+                <p>رایحه‌ای مردانه و پرانرژی با نت‌های دریایی و گریپ‌فروت.</p>
+                <div class="price">شیشه 30g: تومان 670,000</div>
+                <div class="price">شیشه 50g: تومان 990,000</div>
+                <div class="price">شیشه 100g: تومان 1,680,000</div>
+</div>
+            <div class="product" data-category="men">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>بوگاتی</h3>
+                <p>عطری لوکس و مردانه با رایحه‌های چوبی و چرمی.</p>
+                <div class="price">شیشه 30g: تومان 500,000</div>
+                <div class="price">شیشه 50g: تومان 760,000</div>
+                <div class="price">شیشه 100g: تومان 1,260,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>آمبر لدر</h3>
+                <p>رایحه‌ای گرم و چرمی، مناسب برای فصول سرد.</p>
+                <div class="price">شیشه 30g: تومان 580,000</div>
+                <div class="price">شیشه 50g: تومان 860,000</div>
+                <div class="price">شیشه 100g: تومان 1,440,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>بلک ارکیده</h3>
+                <p>عطری مرموز و لوکس با نت‌های گلی و شکلاتی.</p>
+                <div class="price">شیشه 30g: تومان 580,000</div>
+                <div class="price">شیشه 50g: تومان 860,000</div>
+                <div class="price">شیشه 100g: تومان 1,440,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>مفیستو</h3>
+                <p>عطری یونیسکس و پیچیده با نت‌های مرکباتی و گلی.</p>
+                <div class="price">شیشه 30g: تومان 670,000</div>
+                <div class="price">شیشه 50g: تومان 990,000</div>
+                <div class="price">شیشه 100g: تومان 1,680,000</div>
+            </div>
+            <div class="product" data-category="men">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>اونتوس</h3>
+                <p>عطری افسانه‌ای و مردانه با نت‌های میوه‌ای و چوبی.</p>
+                <div class="price">شیشه 30g: تومان 960,000</div>
+                <div class="price">شیشه 50g: تومان 1,440,000</div>
+                <div class="price">شیشه 100g: تومان 2,400,000</div>
+            </div>
+            <div class="product" data-category="men">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>چمپیون</h3>
+                <p>رایحه‌ای پرانرژی و مردانه با نت‌های تازه و ادویه‌ای.</p>
+                <div class="price">شیشه 30g: تومان 500,000</div>
+                <div class="price">شیشه 50g: تومان 760,000</div>
+                <div class="price">شیشه 100g: تومان 1,260,000</div>
+            </div>
+            <div class="product" data-category="women">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>سینگارینا</h3>
+                <p>عطری زنانه و شیرین با نت‌های گلی و میوه‌ای.</p>
+                <div class="price">شیشه 30g: تومان 500,000</div>
+                <div class="price">شیشه 50g: تومان 760,000</div>
+                <div class="price">شیشه 100g: تومان 1,260,000</div>
+            </div>
+            <div class="product" data-category="women">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>شنل چنس</h3>
+                <p>رایحه‌ای گلی و تازه، مناسب برای بانوان مدرن.</p>
+                <div class="price">شیشه 30g: تومان 670,000</div>
+                <div class="price">شیشه 50g: تومان 990,000</div>
+                <div class="price">شیشه 100g: تومان 1,680,000</div>
+            </div>
+            <div class="product" data-category="men">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>ایف سن لورن وای</h3>
+                <p>عطری خنک و مردانه با نت‌های سیب و زنجبیل.</p>
+                <div class="price">شیشه 30g: تومان 670,000</div>
+                <div class="price">شیشه 50g: تومان 990,000</div>
+                <div class="price">شیشه 100g: تومان 1,680,000</div>
+            </div>
+            <div class="product" data-category="women">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>لیبر</h3>
+                <p>رایحه‌ای زنانه و جسور با نت‌های وانیل و لاوندر.</p>
+                <div class="price">شیشه 30g: تومان 720,000</div>
+                <div class="price">شیشه 50g: تومان 1,080,000</div>
+                <div class="price">شیشه 100g: تومان 1,800,000</div>
+            </div>
+            <div class="product" data-category="men">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>لالیک</h3>
+                <p>عطری کلاسیک و مردانه با نت‌های چوبی و گلی.</p>
+                <div class="price">شیشه 30g: تومان 500,000</div>
+                <div class="price">شیشه 50g: تومان 760,000</div>
+                <div class="price">شیشه 100g: تومان 1,260,000</div>
+            </div>
+            <div class="product" data-category="women">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>یارا صورتی</h3>
+                <p>رایحه‌ای شیرین و گلی، مناسب برای بانوان جوان.</p>
+                <div class="price">شیشه 30g: تومان 580,000</div>
+                <div class="price">شیشه 50g: تومان 860,000</div>
+                <div class="price">شیشه 100g: تومان 1,440,000</div>
+            </div>
+            <div class="product" data-category="men">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>ورساچه پورهم</h3>
+                <p>عطری خنک و مردانه با نت‌های مرکباتی و فوجر.</p>
+                <div class="price">شیشه 30g: تومان 580,000</div>
+                <div class="price">شیشه 50g: تومان 860,000</div>
+                <div class="price">شیشه 100g: تومان 1,440,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>نویر تیس</h3>
+                <p>رایحه‌ای گرم و شرقی با نت‌های عود و ادویه.</p>
+                <div class="price">شیشه 30g: تومان 670,000</div>
+                <div class="price">شیشه 50g: تومان 990,000</div>
+                <div class="price">شیشه 100g: تومان 1,680,000</div>
+            </div>
+            <div class="product" data-category="women">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>نارسیس پودری</h3>
+                <p>عطری زنانه و پودری با رایحه گلی و مشکی.</p>
+                <div class="price">شیشه 30g: تومان 960,000</div>
+                <div class="price">شیشه 50g: تومان 1,440,000</div>
+                <div class="price">شیشه 100g: تومان 2,400,000</div>
+            </div>
+            <div class="product" data-category="women">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>بمب شل</h3>
+                <p>رایحه‌ای شیرین و میوه‌ای، مناسب برای بانوان پرانرژی.</p>
+                <div class="price">شیشه 30g: تومان 580,000</div>
+                <div class="price">شیشه 50g: تومان 860,000</div>
+                <div class="price">شیشه 100g: تومان 1,440,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>باکارات رژ</h3>
+                <p>عطری لوکس با نت‌های گلی و چوبی، بسیار فاخر.</p>
+                <div class="price">شیشه 30g: تومان 670,000</div>
+                <div class="price">شیشه 50g: تومان 990,000</div>
+                <div class="price">شیشه 100g: تومان 1,680,000</div>
+            </div>
+            <div class="product" data-category="men">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>بلو شنل</h3>
+                <p>رایحه‌ای مردانه و خنک با نت‌های چوبی و مرکباتی.</p>
+                <div class="price">شیشه 30g: تومان 670,000</div>
+                <div class="price">شیشه 50g: تومان 990,000</div>
+                <div class="price">شیشه 100g: تومان 1,680,000</div>
+            </div>
+            <div class="product" data-category="unisex">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>ویاژ</h3>
+                <p>عطری خنک و یونیسکس با نت‌های گلی و ادویه‌ای.</p>
+                <div class="price">شیشه 30g: --- تومان</div>
+                <div class="price">شیشه 50g: --- تومان</div>
+                <div class="price">شیشه 100g: --- تومان</div>
+            </div>
+            <div class="product" data-category="women">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>آریانا گرند</h3>
+                <p>رایحه‌ای شیرین و گلی، مناسب برای بانوان جوان.</p>
+                <div class="price">شیشه 30g: تومان 670,000</div>
+                <div class="price">شیشه 50g: تومان 990,000</div>
+                <div class="price">شیشه 100g: تومان 1,680,000</div>
+            </div>
+            <div class="product" data-category="women">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>فلورا</h3>
+                <p>عطری گلی و زنانه، یادآور باغ‌های سبز.</p>
+                <div class="price">شیشه 30g: تومان 500,000</div>
+                <div class="price">شیشه 50g: تومان 760,000</div>
+                <div class="price">شیشه 100g: تومان 1,260,000</div>
+            </div>
+            <div class="product" data-category="men">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>بوگارت</h3>
+                <p>رایحه‌ای کلاسیک و مردانه با نت‌های چوبی و فوجر.</p>
+                <div class="price">شیشه 30g: تومان 500,000</div>
+                <div class="price">شیشه 50g: تومان 760,000</div>
+                <div class="price">شیشه 100g: تومان 1,260,000</div>
+            </div>
+            <div class="product" data-category="women">
+                <div class="product-icon"><i class="fas fa-spray-can"></i></div>
+                <h3>CH</h3>
+                <p>عطری زنانه و لوکس با نت‌های گلی و میوه‌ای.</p>
+                <div class="price">شیشه 30g: تومان 500,000</div>
+                <div class="price">شیشه 50g: تومان 760,000</div>
+                <div class="price">شیشه 100g: تومان 1,260,000</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 PERFUME VESSAL. تمامی حقوق محفوظ است.</p>
+            <div class="social-links">
+                <a href="https://instagram.com/Perfume_vessal"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/Perfume_vessal"><i class="fab fa-telegram"></i></a>
+                <a href="mailto:info@perfumevessal.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p>تماس با ما: perfumevessal@gmail.com | 09204003059</p>
+        </div>
+    </div>
+
+    <script>
+        let currentCategory = 'all';
+
+        function filterByCategory(category) {
+            currentCategory = category;
+            const products = document.querySelectorAll('.product');
+            const buttons = document.querySelectorAll('.filters button');
+            
+            buttons.forEach(button => button.classList.remove('active'));
+            event.target.classList.add('active');
+
+            applyFilters();
+        }
+
+        function applyFilters() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase().trim();
+            const products = document.querySelectorAll('.product');
+
+            products.forEach(product => {
+                const name = product.querySelector('h3').textContent.toLowerCase();
+                const categoryMatch = currentCategory === 'all' || product.dataset.category === currentCategory;
+                const searchMatch = name.includes(searchInput);
+
+                if (categoryMatch && searchMatch) {
+                    product.style.display = 'block';
+                    product.style.animation = 'fadeIn 0.5s ease-in-out';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+
+        document.getElementById('searchInput').addEventListener('input', applyFilters);
+    </script>
 </body>
 </html>
